@@ -1,0 +1,201 @@
+:root{
+--blue_crl:#336db6;
+--red_clr:#e3444a;
+}
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+*{
+  font-family: 'Rubik', sans-serif;
+}
+/*....................... animations ...................................*/
+ @-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
+
+ @-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+
+/*....................... header ...................................*/
+header{
+  #mainNavigation{
+    background: white;
+  }
+
+    #mainNavigation a {
+      z-index: 1000;
+        font-family: 'Cabin', sans-serif;
+        font-size:14px;
+        text-transform:uppercase;
+        letter-spacing:2px;
+        text-shadow:1px 1px 2px var(--blue_crl);
+      }
+      .invert{/*nav logo*/
+        width: 200px;
+        transition: 0.4s;
+     }
+     .scrolled .invert{
+        width: 100px;
+     }
+
+      .dropdown-menu {
+        background:#03727d
+      }
+      a.dropdown-toggle {
+        color:#dfdfdf !important
+      }
+      a.dropdown-item:hover {
+        color:#03727d !important
+      }
+      .nav-item a{
+        color:#dfdfdf;
+      }
+      .nav-item a:hover {
+        color:#fff
+      }
+      .nav-item{
+        min-width:12vw;
+      }
+      #mainNavigation {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index:123;
+        padding-bottom:10px;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+      
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+      }
+      #navbarNavDropdown.collapsing .navbar-nav,
+      #navbarNavDropdown.show .navbar-nav{
+        background:#037582;
+        padding:12px;
+      }
+      .navbar-toggler-icon{/*nav icon sand*/
+        background: url('../img/icons/sanwich-nav-icon.png')center/100% auto no-repeat !important;
+        height: 30px;
+    }
+
+
+      @media screen and (max-width:765px) {
+        .dropdown-menu{
+            width: 100%;
+            text-align: center;
+        }
+        #mainNavigation{
+            padding-bottom: 0;
+        }
+      }
+
+
+      
+    
+}
+
+.header-slider{
+  margin-top: 250px;
+  
+}
+@media screen and (max-with:700px) {
+  .header-slider{
+    margin-top: 175px;
+  }
+}
+.header-slider{/* header slider*/
+  .col-md-6{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .txt-div{
+    width: 90%;
+  }
+  .h3{
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 45px;
+    color: var(--red_clr);
+  }
+  .btn{
+    padding: 5px 10px;
+    background: var(--blue_crl);
+    border-radius: 0;
+    color: white;
+  }
+
+  .img-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .img-div img:nth-child(1){
+    z-index: 1;
+  }
+  .img-div img:nth-child(2){
+    position: absolute;
+    width: 90%;
+    z-index: 0;
+      -webkit-animation: rotate-center 15s linear infinite both;
+              animation: rotate-center 15s linear infinite both;
+  }
+
+  @media screen and (max-width:760px) {
+    .h3{
+      font-size: 30px;
+    }
+    .row{
+      gap: 30px;
+    }
+  }
+}
+/*................................................................ header END  -................................................................*/
+
+
+
+
+/*....................... section-1 ...................................*/
+.section-1{
+img {
+    width: 80%;
+}
+
+}
+/*................................................................ section-1 END  -................................................................*/

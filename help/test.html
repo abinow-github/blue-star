@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Partner Slider</title>
+    <!-- bootsrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+    <style>
+        /*5th section.........................................*/
+.section-5{
+  padding: 30px 0;
+  padding-bottom: 40px;
+}
+.section-5.scr-anime h2{
+  position: relative;
+  transform: translateY(-150px);
+  transition: 0.5s;
+  opacity: 0;
+}
+.section-5.scr-anime.actives h2{
+  opacity: 1;
+  transform: translateY(0) !important;
+}
+.section-5 h2{
+  text-align:center;
+  padding: 20px;
+  color: var(--blue);
+}
+/* Slider */
+
+.section-5 .slick-slide {
+    margin: 0px 20px;
+}
+.logo-sldr .slick-track{
+  display: flex !important;
+  align-items: center;
+}
+.section-5 .slick-slide img {
+    width: 100%;
+}
+
+.section-5 .slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+      user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.section-5 .slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.section-5 .slick-list:focus
+{
+    outline: none;
+}
+.section-5 .slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.section-5 .slick-slider .slick-track,
+.section-5 .slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.section-5 .slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.section-5 .slick-track:before,
+.section-5 .slick-track:after
+{
+    display: table;
+    content: '';
+}
+.section-5 .slick-track:after
+{
+    clear: both;
+}
+.section-5 .slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.section-5 .slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'].slick-slide
+{
+    float: right;
+}
+.section-5 .slick-slide img
+{
+    display: block;
+}
+.section-5 .slick-slide.slick-loading img
+{
+    display: none;
+}
+.section-5 .slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.section-5 .slick-initialized .slick-slide
+{
+    display: block;
+}
+.section-5 .slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.section-5 .slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.section-5 .slick-arrow.slick-hidden {
+    display: none;
+}
+.section-5 img{
+    width: 80%;
+}
+@media only screen and (max-width:600px) {
+  .section-5 .slick-initialized .slick-slide{
+  
+  }
+  
+}
+/*5th section.........................................end*/
+    </style>
+
+<body>
+
+    <section class="section-5 scr-anime logo-sldr">
+        <div class="container">
+             <section class="customer-logos slider">
+        <div class="slide"><a href=""><img src="../assets/img/logo/clients/audi.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/bmw.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/lamborghini.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/toyota.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/volkswagen.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/audi.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/bmw.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/lamborghini.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/toyota.png"></a></div>
+          <div class="slide"><a href=""><img src="../assets/img/logo/clients/volkswagen.png"></a></div>
+                
+                
+             </section>
+             <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+             
+          
+          </div>
+    </section>
+
+
+    <!-- Include jQuery first -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Then include Slick slider script -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+//partners card slider
+$(document).ready(function(){
+  $('.customer-logos').slick({
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 1500,
+      arrows: false,
+      dots: false,
+      pauseOnHover: false,
+      responsive: [{
+          breakpoint: 768,
+          settings: {
+              slidesToShow: 5
+          }
+      }, {
+          breakpoint: 520,
+          settings: {
+              slidesToShow: 4
+          }
+      }]
+  });
+});
+</script>
+
+</body>
+</html>
