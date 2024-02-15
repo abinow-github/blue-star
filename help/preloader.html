@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #loading-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        #progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: #4caf50;
+            position: absolute;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loading-bar">
+    <div id="progress-bar"></div>
+</div>
+
+<script>
+    function startLoading() {
+        var progressBar = document.getElementById("progress-bar");
+        var width = 1;
+        var interval = setInterval(function () {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width++;
+                progressBar.style.width = width + "%";
+            }
+        }, 20);
+    }
+
+    // Simulate loading, call this function when you want to start the loading bar
+    startLoading();
+</script>
+
+</body>
+</html>
+    

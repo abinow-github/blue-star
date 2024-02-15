@@ -15,49 +15,145 @@
 
     <!-- css -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="all.css">
+
     <!-- bootsrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
 
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+<style>
+  @keyframes pre-img {
+    0%{
+      transform: translateY(0);
+    }
+    14%{
+      transform: translateY(-14px);
+    }
+    28%{
+      transform: translateY(0);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
+  @keyframes preloader {
+    0%{
+      height: 100vh;
+      opacity: 1;
+    }
+    100%{
+      height: 0;
+      opacity: 0;
+      display: none;
+    }
+  }
+  #preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    background: white;
+    overflow: hidden;
+    .img-div{
+      position: relative;
+      width: 200px;
+      height: 50px;
+    }
+    .img-div img{
+      position: absolute;
+      top: 0;
+      animation: pre-img 2.3s linear infinite;
+      transform: 0.5s;
+    }
+    .img-div img:nth-child(1){
+      animation-delay: 0s;
+    }
+    .img-div img:nth-child(2){
+      animation-delay: 0.2s;
+    }
+    .img-div img:nth-child(3){
+      animation-delay: 0.4s;
+    }
+    .img-div img:nth-child(4){
+      animation-delay: 0.8s;
+    }
+    .img-div img:nth-child(5){
+      animation-delay: 1s;
+    }
+    .img-div img:nth-child(6){
+      animation-delay: 1.2s;
+    }
+    .img-div img:nth-child(7){
+      animation-delay: 1.4s;
+    }
+    .img-div img:nth-child(8){
+      animation-delay: 1.8s;
+    }
+  }
+  #preloader.load{
+    animation: preloader 0.4s linear both;
+  }
+</style>
 </head>
 <body>
-  <i class="fa-solid fa-phone" style="    color: black;
-  font-size: 50px;
-  background: red;
-  position: fixed;"></i>
+  <div id="preloader">
+    <div class="img-div">
+      <img src="assets/img/preloader/b.png" alt="" srcset="" class="w-100">
+      <img src="assets/img/preloader/l.png" alt="" srcset="" class="w-100">
+      <img src="assets/img/preloader/u.png" alt="" srcset="" class="w-100">
+      <img src="assets/img/preloader/e.png" alt="" srcset="" class="w-100">
+      <img src="assets/img/preloader/s.png" alt="" srcset="" class="w-100">
+      <img src="assets/img/preloader/t.png" alt="" srcset="" class="w-100">
+      <img src="assets/img/preloader/a.png" alt="" srcset="" class="w-100">
+      <img src="assets/img/preloader/r.png" alt="" srcset="" class="w-100">
+    </div>
+  </div>
     <!-- header -->
     <header>
 
      <div id="mainNavigation">
         <nav role="navigation">
-          <div class="text-center border-bottom">
+          <div class="text-center">
             <img src="assets/img/logo/BLUE STAR LOGO.png" alt="" class="invert">
           </div>
         </nav>
         <div class="navbar-expand-lg">
           <div class="navbar-dark text-center my-2">
-            <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse"  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span> <span class="align-middle"></span>
             </button>
           </div>
-          <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="text-center mt-3 collapse navbar-collapse d-flex" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto ">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="Home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="About">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Brands">Brands</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Products
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Blog</a></li>
-                  <li><a class="dropdown-item" href="#">About Us</a></li>
-                  <li><a class="dropdown-item" href="#">Contact us</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/filters.png" alt="" srcset="">Filters</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/battery.png" alt="" srcset="">Battery</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/marine-spare-parts.png" alt="" srcset="">Marine Spare Parts</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/engin-parts.png" alt="" srcset="">Engine parts</a></li><br>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/electrical-parts.png" alt="" srcset="">electrical parts</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/body-parts.png" alt="" srcset="">body parts</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/suspension.png" alt="" srcset="">suspenssion</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/other-parts.png" alt="" srcset="">Author parts</a></li>
+                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/ac-parts.png" alt="" srcset="">a/c parts</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -68,62 +164,276 @@
         </div>
       </div>
     </header>
-    <div class="header-slider" >
-      <div class="container">
-          <div class="row">
-              <div class="col-md-6">
-                <div class="txt-div">
-                  <h3 class="h3">
-                    In auto parts and
-                    in service, we are a
-                    class apart
-                  </h3>
-                  <a href="" class="btn">Explore</a>
-                </div>
 
-              </div>
-              <div class="col-md-6">
-                <div class="img-div">
-                  <img src="assets/img/slider/battery.png" width="70%" alt="" srcset="">
-                  <img src="assets/img/shape/circle-shape-rotate.png" alt="" srcset="">
-                </div>
-              </div>
+<!-- carousel -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1500" ><!--  data-ride="carousel" data-interval="1500" -->
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+    
+      <!-- Wrapper for Slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <!-- Set the first background image using inline CSS below. -->
+          <div class="fill">
+            <img src="assets/img/banner/car.jpg">
           </div>
+          <div class="carousel-caption">
+            <h2 class="animated fadeInLeft">Famous Brands</h2>
+            <p class="animated fadeInUp">We provide car spare parts of famous brands</p>
+            <p class="animated fadeInUp"><a href="#" class="btn btn-transparent btn-rounded btn-large">Explore</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <!-- Set the second background image using inline CSS below. -->
+          <div class="fill">
+            <img src="assets/img/banner/filter.jpg" alt="">
+          </div>
+          <div class="carousel-caption">
+            <h2 class="animated fadeInDown">Top-notch Car Filters</h2>
+            <p class="animated fadeInUp">Optimize your ride with precision-engineered filters for peak efficiency.</p>
+            <p class="animated fadeInUp"><a href="#" class="btn btn-transparent btn-rounded btn-large">Explore Filters</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <!-- Set the third background image using inline CSS below. -->
+          <div class="fill">
+            <img src="assets/img/banner/light.jpg" alt="">
+          </div>
+          <div class="carousel-caption">
+            <h2 class="animated fadeInRight">Excellence in Auto Spare Parts</h2>
+            <p class="animated fadeInRight">Explore our vast inventory for top-quality auto spare parts, ensuring your vehicle's peak performance.</p>
+            <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Contact Now</a></p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+      </a>
+    
+    </div>
+<!--.................... carousel END ...........................-->
+
+<!-- section-1 aboutus -->
+<section class="section-1">
+  <div class="container">
+    <div class="row">
+      <p class="p text-center">Welcome to Blue Star Auto Spare Parts Trading, a dynamic force in the automotive spare parts industry, established on September 1, 2020, in the thriving city of Abu Dhabi, UAE. At Blue Star Auto Spare Parts Trading, we are committed to providing exceptional products and services that exceed the expectations of our valued customers. Our dedicated team works tirelessly to source and deliver premium spare parts, ensuring the smooth operation and longevity of your vehicles and machinery.
+      </p>
+      <p class="p text-center">We are a leading supplier of auto spare parts for a wide range of manufacturers</p>
+      <a href="" class="btn btn-cmn">Read More</a>
+    </div>
+    <div class="row">
+      <section class="section-1-2 scr-anime logo-sldr col-lg-12 mt-4">
+      <div class="customer-logos slider">
+        <div class="slide"><img src="assets/img/logo/brands/Caterpillar.png" alt="" srcset=""></div>
+        <div class="slide"><img src="assets/img/logo/brands/Cummins.png" alt="" srcset=""></div>
+        <div class="slide"><img src="assets/img/logo/brands/deutz.png" alt="" srcset=""></div>
+        <div class="slide"><img src="assets/img/logo/brands/man.png" alt="" srcset=""></div>
+        <div class="slide"><img src="assets/img/logo/brands/mercedes.png" alt="" srcset=""></div>
+        <div class="slide"><img src="assets/img/logo/brands/Perkins.png" alt="" srcset=""></div>
+        <div class="slide"><img src="assets/img/logo/brands/tadano.png" alt="" srcset=""></div>
+      </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+<!--.................... section-1 aboutus END ......................... -->
+
+<!-- section-2 main-products -->
+<section class="section-2">
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="card card-1">
+        <div class="card-body">
+          <div class="card-title">Battery</div>
+          <div class="card-details"><p>Ensure reliable power for your vehicle with our high-quality  batteries</p></div>
+          <div class="button-div"><a href="" class="btn">Explore</a></div>
+        </div>
+        <!-- <img src="assets/img/shape/highlight.png" alt="" class="highlight"> -->
+        <img src="assets/img/products/battery.png" alt="" class="product-img">
+      </div>
+    </div>
+    <div class="col-md-5 p-0">
+      <div class="col-md-12">
+        <div class="card card-2">
+          <div class="card-body">
+            <div class="card-title">Filters</div>
+            <div class="card-details"><p>Our products Provide optimal engine efficiency and longevity. </p></div>
+          </div>
+          <img src="assets/img/products/filter.png" alt="" class="product-img">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card card-3">
+          <div class="card-body">
+            <div class="card-title">Marine Spare Parts</div>
+            <div class="card-details"><p>Explore comprehensive range of high-quality marine spare parts</p></div>
+          </div>
+          <img src="assets/img/products/marine-spare-parts.png" alt="" class="product-img">
+        </div>
+      </div>
+    
+
+    </div>
+  </div>
+</div>
+</section>
+<!--.................... section-2 main-products END ......................... -->
+
+<!-- section-3 other-products -->
+<section class="section-3">
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="img-div">
+          <img src="assets/img/products/engine-parts.png" alt="" srcset="" >
+        </div>
+        <div class="card-title text-center">Engine Parts</div>
       </div>
     </div>
 
-
-    <!-- section-1 partners-->
-    <section class="section-1">
-      <div class="container">
-        <section class="customer-logos slider">
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/audi.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/bmw.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/lamborghini.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/toyota.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/volkswagen.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/audi.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/bmw.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/lamborghini.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/toyota.png"></a></div>
-          <div class="slide"><a href=""><img src="assets/img/logo/clients/volkswagen.png"></a></div>
-          
-          
-       </section>
-      
+    <div class="col-md-4">
+      <div class="card">
+        <div class="img-div">
+          <img src="assets/img/products/electrical-parts.png" alt="" srcset="" >
+        </div>
+        <div class="card-title text-center">Electrical Parts</div>
       </div>
-    </section>
-    <!-- section-1 partners END-->
+    </div>
 
-    
-    
-    
-    
-      
+    <div class="col-md-4">
+      <div class="card">
+        <div class="img-div">
+          <img src="assets/img/products/body-parts.png" alt="" srcset="" >
+        </div>
+        <div class="card-title text-center">Body Parts</div>
+      </div>
+    </div>
 
-      <script src="assets/js/script.js"></script>
-      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="img-div">
+          <img src="assets/img/products/suspension.png" alt="" srcset="" >
+        </div>
+        <div class="card-title text-center">Suspension</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="img-div">
+          <img src="assets/img/products/ac-parts.png" alt="" srcset="" >
+        </div>
+        <div class="card-title text-center">A/C Parts</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="img-div">
+          <img src="assets/img/products/other-parts.png" alt="" srcset="" >
+        </div>
+        <div class="card-title text-center">Other Parts</div>
+      </div>
+    </div>
+
+   
+
+  </div>
+</div>
+</section>
+<!--.................... section-3 other-products END ......................... -->
+    
+    
+    
+    
+<!-- ........ footer ......... -->
+<footer class="footer-99382" >
       
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 pr-md-5 d-flex text-center align-items-center justify-content-center" >
+        <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/logo/BLUE STAR LOGO.png" height="50px" alt="" srcset=""></a>
+      </div>
+      <div class="col-md">
+        <h3>Menu</h3>
+        <ul class="list-unstyled nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Brands</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md">
+        <h3>Products</h3>
+        <ul class="list-unstyled nav-links">
+          <li><a href="#">Battery</a></li>
+          <li><a href="#">Filter</a></li>
+          <li><a href="#">Marine Spare Parts</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md">
+        <h3>Follow Us</h3>
+        <ul class="social list-unstyled">
+          <li><a href="#" class="pl-0"><span class="icon-instagram"></span></a></li>
+          <li><a href="#"><span class="fa-solid fa-twitter"></span></a></li>
+          <li><a href="#"><span class="icon-facebook"></span></a></li>
+          <li><a href="#"><span class="icon-pinterest"></span></a></li>
+          <li><a href="#"><span class="icon-dribbble"></span></a></li>
+        </ul>
+      </div>
+    </div> 
+
+    <div class="row ">
+      <div class="col-12 text-center">
+        <div class="copyright mt-5 pt-5">
+          <p><small>&copy; 2019&mdash;2020 All Rights Reserved.</small></p>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <img src="help/composition-different-car-accessories.jpg" class="pos-abs-img" alt="" srcset="">
+</footer>
+<!-- ................... footer END ...................... -->
+      
+<script>
+  /////////preloader function
+var load = document.getElementById("preloader");
+let banner = document.getElementById("myCarousel");
+function isFullyLoaded() {
+    return banner;
+}
+window.onload = function () {
+    if (isFullyLoaded()) {
+        setTimeout(function () {
+            load.classList.add('load');
+        }, 1500);
+    }
+};
+</script>
+      
+      <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Then include Slick slider script -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script src="assets/js/script.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
         
 
 

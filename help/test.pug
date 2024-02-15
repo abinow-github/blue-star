@@ -1,0 +1,286 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title blue star
+  // favicon
+  link(rel='apple-touch-icon' sizes='180x180' href='assets/img/logo/apple-touch-icon.png')
+  link(rel='icon' type='image/png' sizes='32x32' href='assets/img/logo/favicon-32x32.png')
+  link(rel='icon' type='image/png' sizes='16x16' href='assets/img/logo/favicon-16x16.png')
+  link(rel='manifest' href='assets/img/logo/site.webmanifest')
+  link(rel='mask-icon' href='assets/img/logo/safari-pinned-tab.svg' color='#5bbad5')
+  meta(name='msapplication-TileColor' content='#da532c')
+  meta(name='theme-color' content='#ffffff')
+  // css
+  link(rel='stylesheet' href='assets/css/style.css')
+  // bootsrap 5
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css')
+  style.
+    @keyframes pre-img {
+    0%{
+    transform: translateY(0);
+    }
+    14%{
+    transform: translateY(-14px);
+    }
+    28%{
+    transform: translateY(0);
+    }
+    100%{
+    transform: translateY(0);
+    }
+    }
+    @keyframes preloader {
+    0%{
+    height: 100vh;
+    opacity: 1;
+    }
+    100%{
+    height: 0;
+    opacity: 0;
+    display: none;
+    }
+    }
+    #preloader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    background: white;
+    overflow: hidden;
+    .img-div{
+    position: relative;
+    width: 200px;
+    height: 50px;
+    }
+    .img-div img{
+    position: absolute;
+    top: 0;
+    animation: pre-img 2.3s linear infinite;
+    transform: 0.5s;
+    }
+    .img-div img:nth-child(1){
+    animation-delay: 0s;
+    }
+    .img-div img:nth-child(2){
+    animation-delay: 0.2s;
+    }
+    .img-div img:nth-child(3){
+    animation-delay: 0.4s;
+    }
+    .img-div img:nth-child(4){
+    animation-delay: 0.8s;
+    }
+    .img-div img:nth-child(5){
+    animation-delay: 1s;
+    }
+    .img-div img:nth-child(6){
+    animation-delay: 1.2s;
+    }
+    .img-div img:nth-child(7){
+    animation-delay: 1.4s;
+    }
+    .img-div img:nth-child(8){
+    animation-delay: 1.8s;
+    }
+    }
+    #preloader.load{
+    animation: preloader 0.4s linear both;
+    }
+#preloader
+  .img-div
+    img.w-100(src='assets/img/preloader/b.png' alt='' srcset='')
+    img.w-100(src='assets/img/preloader/l.png' alt='' srcset='')
+    img.w-100(src='assets/img/preloader/u.png' alt='' srcset='')
+    img.w-100(src='assets/img/preloader/e.png' alt='' srcset='')
+    img.w-100(src='assets/img/preloader/s.png' alt='' srcset='')
+    img.w-100(src='assets/img/preloader/t.png' alt='' srcset='')
+    img.w-100(src='assets/img/preloader/a.png' alt='' srcset='')
+    img.w-100(src='assets/img/preloader/r.png' alt='' srcset='')
+// header
+header
+  #mainNavigation
+    nav(role='navigation')
+      .text-center
+        img.invert(src='assets/img/logo/BLUE STAR LOGO.png' alt='')
+    .navbar-expand-lg
+      .navbar-dark.text-center.my-2
+        button.navbar-toggler.w-75(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+          span.align-middle
+      #navbarNavDropdown.text-center.mt-3.collapse.navbar-collapse.d-flex
+        ul.navbar-nav.mx-auto
+          li.nav-item
+            a.nav-link(aria-current='page' href='Home') Home
+          li.nav-item
+            a.nav-link(href='About') About
+          li.nav-item
+            a.nav-link(href='Brands') Brands
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | Products
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/filters.png' alt='' srcset='')
+                  | Filters
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/battery.png' alt='' srcset='')
+                  | Battery
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/marine-spare-parts.png' alt='' srcset='')
+                  | Marine Spare Parts
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/engin-parts.png' alt='' srcset='')
+                  | Engine parts
+              br
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/electrical-parts.png' alt='' srcset='')
+                  | electrical parts
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/body-parts.png' alt='' srcset='')
+                  | body parts
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/suspension.png' alt='' srcset='')
+                  | suspenssion
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/other-parts.png' alt='' srcset='')
+                  | Author parts
+              li.col-lg-3
+                a.dropdown-item(href='#')
+                  img(src='assets/img/icons/dropdown/ac-parts.png' alt='' srcset='')
+                  | a/c parts
+          li.nav-item
+            a.nav-link(href='#') Contact
+// carousel
+#myCarousel.carousel.slide(data-ride='carousel' data-interval='1500')
+  // data-ride="carousel" data-interval="1500"
+  // Indicators
+  ol.carousel-indicators
+    li.active(data-target='#myCarousel' data-slide-to='0')
+    li(data-target='#myCarousel' data-slide-to='1')
+    li(data-target='#myCarousel' data-slide-to='2')
+  // Wrapper for Slides
+  .carousel-inner
+    .item.active
+      // Set the first background image using inline CSS below.
+      .fill
+        img(src='assets/img/banner/car.jpg')
+      .carousel-caption
+        h2.animated.fadeInLeft Famous Brands
+        p.animated.fadeInUp We provide car spare parts of famous brands
+        p.animated.fadeInUp
+          a.btn.btn-transparent.btn-rounded.btn-large(href='#') Explore
+    .item
+      // Set the second background image using inline CSS below.
+      .fill
+        img(src='assets/img/banner/filter.jpg' alt='')
+      .carousel-caption
+        h2.animated.fadeInDown Top-notch Car Filters
+        p.animated.fadeInUp Optimize your ride with precision-engineered filters for peak efficiency.
+        p.animated.fadeInUp
+          a.btn.btn-transparent.btn-rounded.btn-large(href='#') Explore Filters
+    .item
+      // Set the third background image using inline CSS below.
+      .fill
+        img(src='assets/img/banner/light.jpg' alt='')
+      .carousel-caption
+        h2.animated.fadeInRight Discover Excellence in Auto Spare Parts
+        p.animated.fadeInRight
+          | Explore our vast inventory for top-quality auto spare parts, ensuring your vehicle&apos;s peak performance.
+        p.animated.fadeInRight
+          a.btn.btn-transparent.btn-rounded.btn-large(href='#') Contact Now
+  // Controls
+  a.left.carousel-control(href='#myCarousel' data-slide='prev')
+    span.icon-prev
+  a.right.carousel-control(href='#myCarousel' data-slide='next')
+    span.icon-next
+// .................... carousel END ...........................
+// section-1 aboutus
+section.section-1
+  .container
+    .row
+      p.p.text-center
+        | Welcome to Blue Star Auto Spare Parts Trading, a dynamic force in the automotive spare parts industry, established on September 1, 2020, in the thriving city of Abu Dhabi, UAE. At Blue Star Auto Spare Parts Trading, we are committed to providing exceptional products and services that exceed the expectations of our valued customers. Our dedicated team works tirelessly to source and deliver premium spare parts, ensuring the smooth operation and longevity of your vehicles and machinery.
+      p.p.text-center We are a leading supplier of auto spare parts for a wide range of manufacturers
+      a.btn.btn-cmn(href='') Read More
+    .row
+      section.section-1-2.scr-anime.logo-sldr.col-lg-12.mt-4
+        .customer-logos.slider
+          .slide
+            img(src='assets/img/logo/brands/Caterpillar.png' alt='' srcset='')
+          .slide
+            img(src='assets/img/logo/brands/Cummins.png' alt='' srcset='')
+          .slide
+            img(src='assets/img/logo/brands/deutz.png' alt='' srcset='')
+          .slide
+            img(src='assets/img/logo/brands/man.png' alt='' srcset='')
+          .slide
+            img(src='assets/img/logo/brands/mercedes.png' alt='' srcset='')
+          .slide
+            img(src='assets/img/logo/brands/Perkins.png' alt='' srcset='')
+          .slide
+            img(src='assets/img/logo/brands/tadano.png' alt='' srcset='')
+// .................... section-1 aboutus END .........................
+// section-2 main-products
+section.section-2
+  .container
+    .row
+      .col-md-7
+        .card.card-1
+          .card-body
+            .card-title
+              h3 Battery
+            .card-details
+          img.highlight(src='assets/img/shape/highlight.png' alt='')
+          img.product-img(src='assets/img/products/battery.png' alt='')
+      .col-md-5.p-0
+        .col-md-12
+          .card.card-2
+            .card-body
+              .card-title
+                h3 Filters
+              .card-details
+            img.product-img(src='assets/img/products/filter.png' alt='')
+        .col-md-12
+          .card.card-3
+            .card-body
+              .card-title
+                h3 Marine Spare Parts
+              .card-details
+            img.product-img(src='assets/img/products/marine-spare-parts.png' alt='')
+// .................... section-2 main-products END .........................
+script.
+  /////////preloader function
+  var load = document.getElementById("preloader");
+  let banner = document.getElementById("myCarousel");
+  function isFullyLoaded() {
+  return banner;
+  }
+  window.onload = function () {
+  if (isFullyLoaded()) {
+  setTimeout(function () {
+  load.classList.add('load');
+  }, 1500);
+  }
+  };
+// jquery
+script(src='https://code.jquery.com/jquery-3.6.4.min.js')
+// Then include Slick slider script
+script(src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
+script(src='assets/js/script.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
