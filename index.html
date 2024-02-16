@@ -125,39 +125,40 @@
         </nav>
         <div class="navbar-expand-lg">
           <div class="navbar-dark text-center my-2">
-            <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse"  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span> <span class="align-middle"></span>
+            <button class="navbar-toggler" type="button" onclick="showNav()"   aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon w-100 h-100"></span> <span class="align-middle"></span>
             </button>
           </div>
           <div class="text-center mt-3 collapse navbar-collapse d-flex" id="navbarNavDropdown">
+            <div class="hide-on-lg close-div"> <button class="close-btn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></div>
             <ul class="navbar-nav mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="Home">Home</a>
+                <a class="nav-link" aria-current="page" href="home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="About">About</a>
+                <a class="nav-link" href="about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Brands">Brands</a>
+                <a class="nav-link" href="brands">Brands</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Products
+                <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                  Products 
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/filters.png" alt="" srcset="">Filters</a></li>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/battery.png" alt="" srcset="">Battery</a></li>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/marine-spare-parts.png" alt="" srcset="">Marine Spare Parts</a></li>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/engin-parts.png" alt="" srcset="">Engine parts</a></li><br>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/electrical-parts.png" alt="" srcset="">electrical parts</a></li>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/body-parts.png" alt="" srcset="">body parts</a></li>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/suspension.png" alt="" srcset="">suspenssion</a></li>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/other-parts.png" alt="" srcset="">Author parts</a></li>
-                  <li class="col-lg-3"><a class="dropdown-item" href="#"><img src="assets/img/icons/dropdown/ac-parts.png" alt="" srcset="">a/c parts</a></li>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/filter"><img src="assets/img/icons/dropdown/filters.png" alt="" srcset="">Filters</a></li>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/battery"><img src="assets/img/icons/dropdown/battery.png" alt="" srcset="">Battery</a></li>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/marine-spare-parts"><img src="assets/img/icons/dropdown/marine-spare-parts.png" alt="" srcset="">Marine Spare Parts</a></li>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/engin-parts"><img src="assets/img/icons/dropdown/engin-parts.png" alt="" srcset="">Engine parts</a></li><br>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/electrical-parts"><img src="assets/img/icons/dropdown/electrical-parts.png" alt="" srcset="">electrical parts</a></li>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/body-parts"><img src="assets/img/icons/dropdown/body-parts.png" alt="" srcset="">body parts</a></li>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/suspenssion"><img src="assets/img/icons/dropdown/suspension.png" alt="" srcset="">suspenssion</a></li>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/ac-parts"><img src="assets/img/icons/dropdown/ac-parts.png" alt="" srcset="">a/c parts</a></li>
+                  <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/other-parts"><img src="assets/img/icons/dropdown/other-parts.png" alt="" srcset="">Other parts</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -362,52 +363,7 @@
     
     
 <!-- ........ footer ......... -->
-<footer class="footer-99382" >
-      
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 pr-md-5 d-flex text-center align-items-center justify-content-center" >
-        <a href="#" class="footer-site-logo d-block mb-4"><img src="assets/img/logo/BLUE STAR LOGO.png" height="50px" alt="" srcset=""></a>
-      </div>
-      <div class="col-md">
-        <h3>Menu</h3>
-        <ul class="list-unstyled nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Brands</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="col-md">
-        <h3>Products</h3>
-        <ul class="list-unstyled nav-links">
-          <li><a href="#">Battery</a></li>
-          <li><a href="#">Filter</a></li>
-          <li><a href="#">Marine Spare Parts</a></li>
-        </ul>
-      </div>
-      
-      <div class="col-md">
-        <h3>Follow Us</h3>
-        <ul class="social list-unstyled">
-          <li><a href="#" class="pl-0"><span class="icon-instagram"></span></a></li>
-          <li><a href="#"><span class="fa-solid fa-twitter"></span></a></li>
-          <li><a href="#"><span class="icon-facebook"></span></a></li>
-          <li><a href="#"><span class="icon-pinterest"></span></a></li>
-          <li><a href="#"><span class="icon-dribbble"></span></a></li>
-        </ul>
-      </div>
-    </div> 
-
-    <div class="row ">
-      <div class="col-12 text-center">
-        <div class="copyright mt-5 pt-5">
-          <p><small>&copy; 2019&mdash;2020 All Rights Reserved.</small></p>
-        </div>
-      </div>
-    </div> 
-  </div>
-  <img src="help/composition-different-car-accessories.jpg" class="pos-abs-img" alt="" srcset="">
+<footer class="footer-99382" id="footer" >
 </footer>
 <!-- ................... footer END ...................... -->
       
@@ -431,6 +387,7 @@ window.onload = function () {
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Then include Slick slider script -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script src="assets/js/script.js"></script>
+    <script src="assets/js/footer.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

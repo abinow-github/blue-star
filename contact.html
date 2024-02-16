@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blue star</title>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/logo/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/logo/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style2.css">
+
+    <!-- bootsrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+
+    <!-- font-awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+ <!-- header -->
+    <header>
+
+        <div id="mainNavigation">
+           <nav role="navigation">
+             <div class="text-center">
+               <img src="assets/img/logo/BLUE STAR LOGO.png" alt="" class="invert">
+             </div>
+           </nav>
+           <div class="navbar-expand-lg">
+             <div class="navbar-dark text-center my-2">
+               <button class="navbar-toggler" type="button" onclick="showNav()"   aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon w-100 h-100"></span> <span class="align-middle"></span>
+               </button>
+             </div>
+             <div class="text-center mt-3 collapse navbar-collapse d-flex" id="navbarNavDropdown">
+               <div class="hide-on-lg close-div"> <button class="close-btn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></div>
+               <ul class="navbar-nav mx-auto ">
+                 <li class="nav-item">
+                   <a class="nav-link" aria-current="page" href="home">Home</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="about">About</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="brands">Brands</a>
+                 </li>
+                 <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                     Products 
+                   </a>
+                   <ul class="dropdown-menu"  id="dropdown-menu">
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/filter"><img src="assets/img/icons/dropdown/filters.png" alt="" srcset="">Filters</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/battery"><img src="assets/img/icons/dropdown/battery.png" alt="" srcset="">Battery</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/marine-spare-parts"><img src="assets/img/icons/dropdown/marine-spare-parts.png" alt="" srcset="">Marine Spare Parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/engin-parts"><img src="assets/img/icons/dropdown/engin-parts.png" alt="" srcset="">Engine parts</a></li><br>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/electrical-parts"><img src="assets/img/icons/dropdown/electrical-parts.png" alt="" srcset="">electrical parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/body-parts"><img src="assets/img/icons/dropdown/body-parts.png" alt="" srcset="">body parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/suspenssion"><img src="assets/img/icons/dropdown/suspension.png" alt="" srcset="">suspenssion</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/ac-parts"><img src="assets/img/icons/dropdown/ac-parts.png" alt="" srcset="">a/c parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="products/other-parts"><img src="assets/img/icons/dropdown/other-parts.png" alt="" srcset="">Other parts</a></li>
+                   </ul>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="contact">Contact</a>
+                 </li>
+               </ul>
+             </div>
+           </div>
+         </div>
+       </header>
+ <!-- header End -->
+ <!-- banner -->
+ <div class="banner">
+    <div class="container">
+        <a class="pos-abs-title"> About Us </a>
+    </div>
+ </div>
+ <!-- banner END-->
+
+ <!--.................... about-section-1 ..............-->
+ <section class="abt-section-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <p class="p">
+                    Welcome to Blue Star Auto Spare Parts Trading, a dynamic force in the automotive spare parts industry, established on September 1, 2020, in the thriving city of Abu Dhabi, UAE. At Blue Star Auto Spare Parts Trading, we are committed to providing exceptional products and services that exceed the expectations of our valued customers. Our dedicated team works tirelessly to source and deliver premium spare parts, ensuring the smooth operation and longevity of your vehicles and machinery.
+                    <br>
+                    We are a leading supplier of auto spare parts for a wide range of manufacturers, including:
+                </p>
+                <div class="row img-row">
+                    <img src="assets/img/logo/brands/Caterpillar.png" alt="" srcset="">
+                    <img src="assets/img/logo/brands/Cummins.png" alt="" srcset="">
+                    <img src="assets/img/logo/brands/deutz.png" alt="" srcset="">
+                    <img src="assets/img/logo/brands/man.png" alt="" srcset="">
+                    <img src="assets/img/logo/brands/mercedes.png" alt="" srcset="">
+                    <img src="assets/img/logo/brands/Perkins.png" alt="" srcset="">
+                    <img src="assets/img/logo/brands/tadano.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 text-center">
+                <img src="assets/img/about/about-img-1.jpg" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+ </section>
+ <!--.................... about-section-1 END ..............-->
+
+ <!--.................... about-section-2 ..............-->
+ <section class="abt-section-2">
+    <div class="container">
+        <div class="row">
+            <p class="p">Driven by a customer-centric approach, we prioritize customer satisfaction and long-term partnerships. Our experienced and responsive team is dedicated to understanding and meeting the unique needs of our clients. As we continue to grow, our global reach enables us to serve manufacturers on an international scale, ensuring that Blue Star Auto Spare Parts Trading remains the preferred choice for those seeking excellence, reliability, and a trusted supplier for their automotive spare parts needs.</p>
+            <p class="p">Choose Blue Star Auto Spare Parts Trading as your trusted partner in the automotive spare parts industry. Experience excellence, reliability, and unparalleled service with every interaction.</p>
+        </div>
+        
+    </div>
+ </section>
+ <!--.................... about-section-2 END ..............-->
+
+ <footer id="footer"></footer>
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Then include Slick slider script -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script src="assets/js/script.js"></script>
+    <script src="assets/js/footer.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -88,8 +88,25 @@
 .section-1,.section-2,.section-3,.section-4,.section-5,.section-6,.section-7,.section-8{
   padding: 50px 0;
 }
+@media screen and (min-width:992px) {
+  .hide-on-lg{
+    display: none;
+  }
+}
+@media screen and (max-width:992px) and (min-width:765px) {
+  .hide-on-md{
+    display: none;
+  }
+}
+@media screen and (max-width:765px) {
+  .hide-on-sm{
+    display: none;
+  }
+}
+
 
 /*....................... header ...................................*/
+@media screen and (min-width:992px) {
 header{
   .collapse.navbar-collapse.d-flex{
     display: flex !important;
@@ -186,7 +203,7 @@ header  .dropdown:hover .dropdown-menu,.dropdown-menu.show{/* hover dropdown */
     background: white;
   }
 }
-
+}
 @media screen and (max-width:992px) {/* ..................navbar in medium devices............... */
   header{
     .collapse.navbar-collapse.d-flex{
@@ -196,9 +213,35 @@ header  .dropdown:hover .dropdown-menu,.dropdown-menu.show{/* hover dropdown */
       height: 100vh !important;
       background: white;
       top: 0;
-      width: 50%;
+      width: 80%;
       margin-top: 0 !important;
+      flex-direction: column;
+      overflow: scroll !important;
+      padding-left: 30px;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: 0.4s;
+    }.collapse.navbar-collapse.d-flex.show{
+      transform: translateX(0);
+      opacity: 1;
     }
+    .close-div{
+      padding: 10px 5px;
+      text-align: right;
+      width: 100%;
+      .close-btn{
+        background: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .navbar-nav{
+      width: 100%;
+      text-align: left;
+    }
+
       #mainNavigation a.nav-link {
         z-index: 1000;
           font-family: 'Cabin', sans-serif;
@@ -218,9 +261,17 @@ header  .dropdown:hover .dropdown-menu,.dropdown-menu.show{/* hover dropdown */
   
         .dropdown-menu {/* dropdown */
           border: 0;
+          top: 0;
+          height: 0;
+          overflow: hidden;
           left: -50%;
+          padding: 0;
+          transition: 1s;
           background-color: #ffffffb0;
           padding: 20px;
+          position: relative;
+          box-shadow: none;
+          width: 100%;
           li .dropdown-item{
             display: flex;
             flex-direction: column;
@@ -247,50 +298,225 @@ header  .dropdown:hover .dropdown-menu,.dropdown-menu.show{/* hover dropdown */
   
         
         .nav-item a{
-          color:#dfdfdf;
+          color:#000000c4;
         }
         .nav-item a:hover {
-          color:#fff
+          color:#000000c4
         }
         .nav-item{
           min-width:12vw;
         }
         #mainNavigation {
           position:fixed;
+          align-items: center;
           top:0;
           left:0;
           width:100%;
           z-index:123;
           padding-bottom:10px;
           transition: 0.5s;
+          display: flex;
+          justify-content: space-between;
+          padding: 0 30px;
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+        .navbar-expand-lg{
+          display: flex;
+          align-items: center;
+        }
         }
         #navbarNavDropdown.collapsing .navbar-nav,
         #navbarNavDropdown.show .navbar-nav{
           padding:12px;
         }
+        .navbar-toggler{
+          height: 50px;
+          width: 50px;
+          padding: 5px;
+          border: 0;
+        }
         .navbar-toggler-icon{/*nav icon sand*/
           background: url('../img/icons/sanwich-nav-icon.png')center/100% auto no-repeat !important;
-          height: 30px;
+          filter: invert(97%) sepia(1%) saturate(65%) hue-rotate(114deg) brightness(118%) contrast(100%);
       }
       
   }
-  header  .dropdown:hover .dropdown-menu,.dropdown-menu.show{/* hover dropdown */
-    display: flex;
+  header .dropdown:hover .dropdown-menu{
+    display: none;
+  }
+  header .navbar-expand-lg .dropdown-menu.show{/* hover dropdown */
+    position: relative !important;
+    display: flex !important;
     animation: dropdown 0.3s linear both;
     width: 100%;
     flex-wrap: wrap;
-    left: -300px;
+    left: 0 !important;
+    height: auto;
   }
   #mainNavigation.scrolled{/*...... navbar when scrolled .....*/
     background-color: white;
-    .nav-item a{
-      color: #000000c4;
-    }
-    .dropdown-menu{
-      background: white;
-    }
+    .navbar-toggler-icon{/*nav icon sand*/
+      filter: none;
   }
+  }
+
+
+}
+@media screen and (max-width:765px) {/* ..................navbar in small devices............... */
+  header{
+    .collapse.navbar-collapse.d-flex{
+      display: flex !important;
+      position: fixed;
+      right: 0;
+      height: 100vh !important;
+      background: white;
+      top: 0;
+      width: 90%;
+      margin-top: 0 !important;
+      flex-direction: column;
+      overflow: scroll !important;
+      padding-left: 30px;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: 0.4s;
+    }.collapse.navbar-collapse.d-flex.show{
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .close-div{
+      padding: 10px 5px;
+      text-align: right;
+      width: 100%;
+      .close-btn{
+        background: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .navbar-nav{
+      width: 100%;
+      text-align: left;
+    }
+
+      #mainNavigation a.nav-link {
+        z-index: 1000;
+          font-family: 'Cabin', sans-serif;
+          font-size:14px;
+          text-transform:uppercase;
+          letter-spacing:2px;
+          font-weight: bold;
+         /*  text-shadow:1px 1px 2px #fff; */
+        }
+        .invert{/*nav logo*/
+          width: 100px;
+          transition: 0.4s;
+       }
+       .scrolled .invert{
+          width: 100px;
+       }
+  
+        .dropdown-menu {/* dropdown */
+          border: 0;
+          top: 0;
+          height: 0;
+          overflow: hidden;
+          left: -50%;
+          padding: 0;
+          transition: 1s;
+          background-color: #ffffffb0;
+          position: relative;
+          box-shadow: none;
+          width: 100%;
+          li .dropdown-item{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            text-transform: capitalize;
+            padding: 10px 0;
+            img{
+              width: 35px;
+              filter: grayscale(1);
+            }
+          }
+          li .dropdown-item:hover{
+            color: black;
+            background: transparent;
+            font-weight: 600;
+            img{
+              filter: grayscale(0);
+            }
+          }
+        }/* end-dropdown */
+  
+  
+  
+        
+        .nav-item a{
+          color:#000000c4;
+        }
+        .nav-item a:hover {
+          color:#000000c4
+        }
+        .nav-item{
+          min-width:12vw;
+        }
+        #mainNavigation {
+          position:fixed;
+          align-items: center;
+          top:0;
+          left:0;
+          width:100%;
+          z-index:123;
+          padding-bottom:10px;
+          transition: 0.5s;
+          display: flex;
+          justify-content: space-between;
+          padding: 0 15px;
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+        .navbar-expand-lg{
+          display: flex;
+          align-items: center;
+        }
+        }
+        #navbarNavDropdown.collapsing .navbar-nav,
+        #navbarNavDropdown.show .navbar-nav{
+          padding:12px;
+        }
+        .navbar-toggler{
+          height: 50px;
+          width: 50px;
+          padding: 5px;
+          border: 0;
+        }
+        .navbar-toggler-icon{/*nav icon sand*/
+          background: url('../img/icons/sanwich-nav-icon.png')center/100% auto no-repeat !important;
+          filter: invert(97%) sepia(1%) saturate(65%) hue-rotate(114deg) brightness(118%) contrast(100%);
+      }
+      
+  }
+  header .dropdown:hover .dropdown-menu{
+    display: none;
+  }
+  header .navbar-expand-lg .dropdown-menu.show{/* hover dropdown */
+    position: relative !important;
+    display: flex !important;
+    animation: dropdown 0.3s linear both;
+    width: 100%;
+    flex-wrap: wrap;
+    left: 0 !important;
+    height: auto;
+  }
+  #mainNavigation.scrolled{/*...... navbar when scrolled .....*/
+    background-color: white;
+    box-shadow: 0px 1px 2px 2px #00000042;
+    .navbar-toggler-icon{/*nav icon sand*/
+      filter: none;
+  }
+  }
+
+  
 }
 /*................................................................ header END  -................................................................*/
 
@@ -667,6 +893,11 @@ footer:before {
   background-color: rgb(80 105 137 / 39%); 
   z-index: 1;
   backdrop-filter: blur(3px);
+}
+@media screen and (max-width:765px) {
+  footer{
+    text-align: center;
+  }
 }
 
 

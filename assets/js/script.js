@@ -39,6 +39,27 @@ $(document).ready(function(){
     });
 });
 
+/////////// show nabar in medium and small devices
+function showNav(){
+    let nav = document.getElementById('navbarNavDropdown')
+    nav.classList.add('show')
+}
+function closeNav(){
+    let nav = document.getElementById('navbarNavDropdown')
+    nav.classList.remove('show')
+}
+////////////navbar onclick dropdown 
+// Get the elements
+let dropdownContainer = document.getElementById('navbarDropdownMenuLink');
+let dropdownMenu = document.getElementById('dropdown-menu');
+function showDropdown() {
+    dropdownMenu.classList.toggle('show');
+}
+
+// Attach event listener to the dropdown container
+dropdownContainer.addEventListener('click', showDropdown);
+
+
 
 
 

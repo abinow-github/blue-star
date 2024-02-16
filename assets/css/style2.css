@@ -1,0 +1,687 @@
+:root{
+    --blue_crl:#336db6;
+    --red_clr:#e3444a;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+    *{
+      font-family: 'Rubik', sans-serif;
+    }
+    /*....................... animations ...................................*/
+     @-webkit-keyframes scale-up-center {
+      0% {
+        -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+      }
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+    }
+    @keyframes scale-up-center {
+      0% {
+        -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+      }
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+    }
+    
+    
+    
+     @-webkit-keyframes rotate-center {
+      0% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate-center {
+      0% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+      }
+    }
+    
+    @keyframes zoom {
+      from {
+        transform: scale(1, 1);
+      }
+      to {
+        transform: scale(1.5, 1.5);
+      }
+    }
+    
+    @keyframes dropdown {
+      0%{
+        display: flex;
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100%{
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes rotate{
+      0%{
+        transform: rotate(0) scale(1.1);
+      }
+      50%{
+        transform: rotate(180deg) scale(1.1);
+      }
+      100%{
+        transform: rotate(360deg) scale(1.1);
+      }
+    }
+    /* .................................. common styles ......................... */
+    .section-1,.section-2,.section-3,.section-4,.section-5,.section-6,.section-7,.section-8,
+    .abt-section-1,.abt-section-2,.abt-section-3{
+      padding: 80px 0;
+    }
+    @media screen and (min-width:992px) {
+      .hide-on-lg{
+        display: none;
+      }
+    }
+    @media screen and (max-width:992px) and (min-width:765px) {
+      .hide-on-md{
+        display: none;
+      }
+    }
+    @media screen and (max-width:765px) {
+      .hide-on-sm{
+        display: none;
+      }
+    }
+    
+    
+    /*....................... header ...................................*/
+    @media screen and (min-width:992px) {
+    header{
+      .collapse.navbar-collapse.d-flex{
+        display: flex !important;
+      }
+        #mainNavigation a.nav-link {
+          z-index: 1000;
+            font-family: 'Cabin', sans-serif;
+            font-size:14px;
+            text-transform:uppercase;
+            letter-spacing:2px;
+            font-weight: bold;
+           /*  text-shadow:1px 1px 2px #fff; */
+          }
+          .invert{/*nav logo*/
+            width: 200px;
+            transition: 0.4s;
+         }
+         .scrolled .invert{
+            width: 100px;
+         }
+    
+          .dropdown-menu {/* dropdown */
+            border: 0;
+            left: -50%;
+            background-color: #ffffffb0;
+            padding: 20px;
+            li .dropdown-item{
+              display: flex;
+              flex-direction: column;
+              text-align: center;
+              align-items: center;
+              text-transform: capitalize;
+              padding: 10px 0;
+              img{
+                width: 50px;
+                filter: grayscale(1);
+              }
+            }
+            li .dropdown-item:hover{
+              color: black;
+              background: transparent;
+              font-weight: 600;
+              img{
+                filter: grayscale(0);
+              }
+            }
+          }/* end-dropdown */
+    
+    
+    
+          
+          .nav-item a{
+            color:black;
+          }
+          .nav-item{
+            min-width:12vw;
+          }
+          #mainNavigation {
+            position:fixed;
+            background: white;
+            top:0;
+            left:0;
+            width:100%;
+            z-index:123;
+            padding-bottom:10px;
+            transition: 0.5s;
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+          }
+          #navbarNavDropdown.collapsing .navbar-nav,
+          #navbarNavDropdown.show .navbar-nav{
+            padding:12px;
+          }
+          .navbar-toggler-icon{/*nav icon sand*/
+            background: url('../img/icons/sanwich-nav-icon.png')center/100% auto no-repeat !important;
+            height: 30px;
+        }
+        
+    }
+    header  .dropdown:hover .dropdown-menu,.dropdown-menu.show{/* hover dropdown */
+      display: flex !important;
+      animation: dropdown 0.3s linear both;
+      width: 800px;
+      flex-wrap: wrap;
+      left: -300px !important;
+    }
+    #mainNavigation.scrolled{/*...... navbar when scrolled .....*/
+      background-color: white;
+      box-shadow: 0px 1px 2px 2px #00000042;
+      .nav-item a{
+        color: #000000c4;
+      }
+      .dropdown-menu{
+        background: white;
+      }
+    }
+    }
+    @media screen and (max-width:992px) {/* ..................navbar in medium devices............... */
+      header{
+        .collapse.navbar-collapse.d-flex{
+          display: flex !important;
+          position: fixed;
+          right: 0;
+          height: 100vh !important;
+          background: white;
+          top: 0;
+          width: 80%;
+          margin-top: 0 !important;
+          flex-direction: column;
+          overflow: scroll !important;
+          padding-left: 30px;
+          transform: translateX(100%);
+          opacity: 0;
+          transition: 0.4s;
+        }.collapse.navbar-collapse.d-flex.show{
+          transform: translateX(0);
+          opacity: 1;
+        }
+        .close-div{
+          padding: 10px 5px;
+          text-align: right;
+          width: 100%;
+          .close-btn{
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+          }
+        }
+    
+        .navbar-nav{
+          width: 100%;
+          text-align: left;
+        }
+    
+          #mainNavigation a.nav-link {
+            z-index: 1000;
+              font-family: 'Cabin', sans-serif;
+              font-size:14px;
+              text-transform:uppercase;
+              letter-spacing:2px;
+              font-weight: bold;
+             /*  text-shadow:1px 1px 2px #fff; */
+            }
+            .invert{/*nav logo*/
+              width: 200px;
+              transition: 0.4s;
+           }
+           .scrolled .invert{
+              width: 100px;
+           }
+      
+            .dropdown-menu {/* dropdown */
+              border: 0;
+              top: 0;
+              height: 0;
+              overflow: hidden;
+              left: -50%;
+              padding: 0;
+              transition: 1s;
+              background-color: #ffffffb0;
+              padding: 20px;
+              position: relative;
+              box-shadow: none;
+              width: 100%;
+              li .dropdown-item{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                text-transform: capitalize;
+                padding: 10px 0;
+                img{
+                  width: 50px;
+                  filter: grayscale(1);
+                }
+              }
+              li .dropdown-item:hover{
+                color: black;
+                background: transparent;
+                font-weight: 600;
+                img{
+                  filter: grayscale(0);
+                }
+              }
+            }/* end-dropdown */
+      
+      
+      
+            
+            .nav-item a{
+              color:#000000c4;
+            }
+            .nav-item a:hover {
+              color:#000000c4
+            }
+            .nav-item{
+              min-width:12vw;
+            }
+            #mainNavigation {
+              position:fixed;
+              background: white;
+              align-items: center;
+              top:0;
+              left:0;
+              width:100%;
+              z-index:123;
+              padding-bottom:10px;
+              transition: 0.5s;
+              display: flex;
+              justify-content: space-between;
+              padding: 0 30px;
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+            .navbar-expand-lg{
+              display: flex;
+              align-items: center;
+            }
+            }
+            #navbarNavDropdown.collapsing .navbar-nav,
+            #navbarNavDropdown.show .navbar-nav{
+              padding:12px;
+            }
+            .navbar-toggler{
+              height: 50px;
+              width: 50px;
+              padding: 5px;
+              border: 0;
+            }
+            .navbar-toggler-icon{/*nav icon sand*/
+              background: url('../img/icons/sanwich-nav-icon.png')center/100% auto no-repeat !important;
+              
+          }
+          
+      }
+      header .dropdown:hover .dropdown-menu{
+        display: none;
+      }
+      header .navbar-expand-lg .dropdown-menu.show{/* hover dropdown */
+        position: relative !important;
+        display: flex !important;
+        animation: dropdown 0.3s linear both;
+        width: 100%;
+        flex-wrap: wrap;
+        left: 0 !important;
+        height: auto;
+      }
+      #mainNavigation.scrolled{/*...... navbar when scrolled .....*/
+        background-color: white;
+        box-shadow: 0px 1px 2px 2px #00000042;
+        .navbar-toggler-icon{/*nav icon sand*/
+          filter: none;
+      }
+      }
+    
+    
+    }
+    @media screen and (max-width:765px) {/* ..................navbar in small devices............... */
+      header{
+        .collapse.navbar-collapse.d-flex{
+          display: flex !important;
+          position: fixed;
+          right: 0;
+          height: 100vh !important;
+          background: white;
+          top: 0;
+          width: 90%;
+          margin-top: 0 !important;
+          flex-direction: column;
+          overflow: scroll !important;
+          padding-left: 30px;
+          transform: translateX(100%);
+          opacity: 0;
+          transition: 0.4s;
+        }.collapse.navbar-collapse.d-flex.show{
+          transform: translateX(0);
+          opacity: 1;
+        }
+        .close-div{
+          padding: 10px 5px;
+          text-align: right;
+          width: 100%;
+          .close-btn{
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+          }
+        }
+    
+        .navbar-nav{
+          width: 100%;
+          text-align: left;
+        }
+    
+          #mainNavigation a.nav-link {
+            z-index: 1000;
+              font-family: 'Cabin', sans-serif;
+              font-size:14px;
+              text-transform:uppercase;
+              letter-spacing:2px;
+              font-weight: bold;
+             /*  text-shadow:1px 1px 2px #fff; */
+            }
+            .invert{/*nav logo*/
+              width: 100px;
+              transition: 0.4s;
+           }
+           .scrolled .invert{
+              width: 100px;
+           }
+      
+            .dropdown-menu {/* dropdown */
+              border: 0;
+              top: 0;
+              height: 0;
+              overflow: hidden;
+              left: -50%;
+              padding: 0;
+              transition: 1s;
+              background-color: #ffffffb0;
+              position: relative;
+              box-shadow: none;
+              width: 100%;
+              li .dropdown-item{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                text-transform: capitalize;
+                padding: 10px 0;
+                img{
+                  width: 35px;
+                  filter: grayscale(1);
+                }
+              }
+              li .dropdown-item:hover{
+                color: black;
+                background: transparent;
+                font-weight: 600;
+                img{
+                  filter: grayscale(0);
+                }
+              }
+            }/* end-dropdown */
+      
+      
+      
+            
+            .nav-item a{
+              color:#000000c4;
+            }
+            .nav-item a:hover {
+              color:#000000c4
+            }
+            .nav-item{
+              min-width:12vw;
+            }
+            #mainNavigation {
+              position:fixed;
+              background: white;
+              align-items: center;
+              top:0;
+              left:0;
+              width:100%;
+              z-index:123;
+              padding-bottom:10px;
+              transition: 0.5s;
+              display: flex;
+              justify-content: space-between;
+              padding: 0 15px;
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+            .navbar-expand-lg{
+              display: flex;
+              align-items: center;
+            }
+            }
+            #navbarNavDropdown.collapsing .navbar-nav,
+            #navbarNavDropdown.show .navbar-nav{
+              padding:12px;
+            }
+            .navbar-toggler{
+              height: 50px;
+              width: 50px;
+              padding: 5px;
+              border: 0;
+            }
+            .navbar-toggler-icon{/*nav icon sand*/
+              background: url('../img/icons/sanwich-nav-icon.png')center/100% auto no-repeat !important;
+              
+          }
+          
+      }
+      header .dropdown:hover .dropdown-menu{
+        display: none;
+      }
+      header .navbar-expand-lg .dropdown-menu.show{/* hover dropdown */
+        position: relative !important;
+        display: flex !important;
+        animation: dropdown 0.3s linear both;
+        width: 100%;
+        flex-wrap: wrap;
+        left: 0 !important;
+        height: auto;
+      }
+      #mainNavigation.scrolled{/*...... navbar when scrolled .....*/
+        background-color: white;
+        box-shadow: 0px 1px 2px 2px #00000042;
+        .navbar-toggler-icon{/*nav icon sand*/
+          filter: none;
+      }
+      }
+    
+      
+    }
+    /*................................................................ header END  -................................................................*/
+    
+    /*....................... banner ...................................*/
+    .banner{
+        width: 100%;
+        height: 65vh;
+        background: url(../img/banner/car-repair.jpg) no-repeat;
+        background-size: cover;
+        position: relative;
+        .pos-abs-title{
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            background: white;
+            border-radius: 10px 10px 0 0;
+            text-decoration: none;
+            padding: 5px 20px;
+            color: black;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    }
+    .banner::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(4px);
+        z-index: 0;
+    }
+    @media screen and (max-width:765px) {
+        .banner{
+            height: 35vh;
+        }
+    }
+    /*....................... banner END ...................................*/
+
+
+
+    /*....................... about section-1 ...................................*/
+    .abt-section-1{
+        .row{
+            align-items: center;
+            .col-md-6.text-center img{
+                width: 50%;
+            }
+        }
+        .img-row{
+            justify-content: center;
+            img{
+                height: 50px;
+                width: auto;
+            }
+        }
+    }
+    /*....................... about section-1 END ...................................*/
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    /*....................... footer ...................................*/
+    
+    footer{
+      padding: 7rem 0;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: #777;
+      position: relative;
+      font-family: "Poppins", sans-serif;
+      .container{
+        z-index: 2;
+        position: relative;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--red_clr);
+        margin-bottom: 30px; }
+      .footer-site-logo {
+          font-size: 1.5rem;
+          color: #fff; }
+      .nav-links li {
+            margin-bottom: 10px; }
+      .nav-links li a {
+        text-decoration: none;
+              color: #141212; }
+      .nav-links li a:hover {
+                color: #fff; }
+      .btn.btn-tertiary {
+                  background-color: #e42c64;
+                  color: #fff;
+                  border-radius: 30px;
+                  border: none;
+                  padding: 10px 20px; }
+      .social li {
+       display: inline-block; }
+      .social li a {
+        color: gray;
+        padding: 7px; }
+      .social li a:hover {
+          color: #fff; }
+      .copyright {
+            border-top: 1px solid #595959; }
+    
+      .pos-abs-img{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        opacity: 50%;
+        object-fit: cover;
+      }
+    }
+    footer:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(80 105 137 / 39%); 
+      z-index: 1;
+      backdrop-filter: blur(3px);
+    }
+    @media screen and (max-width:765px) {
+      footer{
+        text-align: center;
+      }
+    }
+    
+    
+    
+    
+        /*................................................ brands.html...................................*/
+        .section-1.brands{
+            .col-6{
+                margin-bottom: 30px;
+            }
+            .card{
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 0 2px 1px #45494e99;
+                background: #d0deee9e;
+                height: 100%;
+                border: 0;
+            }
+            .card img{
+                width: 80%;
+            }
+        }
+        /*............................................. about section-2 END ...................................*/
