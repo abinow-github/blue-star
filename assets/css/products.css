@@ -1,0 +1,82 @@
+
+
+
+/* ............. filter.html .................. */
+.section-1.filter{
+    .col-lg-3{
+        margin-bottom: 30px;
+    }
+    .card{
+        border: 0;
+        z-index: 1;
+        padding-bottom: 10px;
+        height: 100%;
+        .img-div{
+            width: 100%;
+            height: 200px;
+            padding: 5px;
+            z-index: 1;
+        }.img-div img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: bottom;
+        }
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1;
+            justify-content: space-between;
+        }
+        .card-title{
+            font-size: 20px;
+            display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+         -webkit-line-clamp: 2;
+         text-align: center;
+        }
+        .call-btn{
+            text-decoration: none;
+            padding: 5px 10px;
+            background: #4077bb;
+            color: white;
+            font-size: 16px;
+        }
+        .call-btn:hover{
+            background: #ea454b;
+        }
+    }
+    .card::after{
+        content: '';
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        bottom: 0;
+        border-radius: 10px;
+        z-index: 0;
+        background: #e4b3296b;
+        transition: 0.4s;
+        opacity: 0;
+    }
+    .card:hover{
+        cursor: pointer;
+    }
+    .card:hover::after{
+            height: 70%;
+            opacity: 1;
+        }
+}
+@media screen and (max-width:765px) {
+    .section-1.filter{
+
+        .card .img-div{
+                height: 150px;
+            }
+            .card .card-title{
+                font-size: 17px;
+            }
+        }
+}
+/* ............. filter.html END .................. */

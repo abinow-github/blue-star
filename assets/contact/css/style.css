@@ -8216,12 +8216,17 @@ textarea.form-control {
   box-shadow: 0px 21px 41px -13px rgba(0, 0, 0, 0.18); }
 
 .contact-wrap {
-  background: #272a34; }
+  background: #243141;
+ }
   .contact-wrap h3 {
     color: #fff; }
 
 .info-wrap {
-  background: #1c1e25; }
+  background: #8e3a3e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
   .info-wrap h3 {
     color: white;
     font-size: 18px;
@@ -8237,7 +8242,8 @@ textarea.form-control {
         font-weight: 400;
         color: #fff; }
       .info-wrap .dbox p a {
-        color: rgba(255, 255, 255, 0.3); }
+        color: white;
+        text-decoration: none; }
     .info-wrap .dbox .icon {
       width: 50px;
       height: 50px;
@@ -8247,7 +8253,10 @@ textarea.form-control {
         font-size: 20px;
         color: #fff; }
     .info-wrap .dbox .text {
-      width: calc(100% - 50px); }
+      width: calc(100% - 50px);
+      margin: auto;
+      color: white;
+     }
 
 .btn {
   padding: 12px 16px;
@@ -8274,17 +8283,22 @@ textarea.form-control {
     -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.22) !important;
     box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.22) !important; }
   .btn.btn-primary {
-    background: #f39422 !important;
-    border-color: #f39422 !important;
+    background: #8e3a3e !important;
+    border: 0;
     color: #fff; }
     .btn.btn-primary:hover, .btn.btn-primary:focus {
-      border-color: #d67a0c !important;
-      background: #d67a0c !important; }
+      background: #a9292f !important;
+     }
 
 .contactForm .form-control {
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: transparent ;
   padding: 0; }
+  .contactForm .form-control:focus{
+    background: transparent;
+  }
 
 #contactForm .error {
   color: #f65c78;

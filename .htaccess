@@ -1,6 +1,20 @@
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^home$ index.html [L]
 RewriteRule ^about$ about.html [L]
 RewriteRule ^brands$ brands.html [L]
 RewriteRule ^contact$ contact.html [L]
+
+
+
+RewriteRule ^products/filter$ products/filter.html [L]
+RewriteRule ^products/battery$ products/battery.html [L]
+RewriteRule ^products/marine-spare-parts$ products/marine-spare-parts.html [L]
+
+RewriteRule ^products/engin-parts$ products/engin-parts.html [L]
+RewriteRule ^products/electrical-parts$ products/electrical-parts.html [L]
+RewriteRule ^products/body-parts$ products/body-parts.html [L]
+RewriteRule ^products/suspenssion$ products/suspenssion.html [L]
+RewriteRule ^products/ac-parts$ products/ac-parts.html [L]
+RewriteRule ^products/other-parts$ products/other-parts.html [L]

@@ -1,7 +1,7 @@
 ﻿<?php
 
 // Replace this with your own email address
-$to = 'louiejiemahusay@gmail.com';
+$to = 'abinow.email@gmail.com';
 
 function url(){
   return sprintf(
@@ -40,7 +40,9 @@ if($_POST) {
    ini_set("sendmail_from", $to); // for windows server
    $mail = mail($to, $subject, $message, $headers);
 
-	if ($mail) { echo "OK"; }
+	if ($mail) { echo "OK";
+      
+    }
    else { echo "Something went wrong. Please try again."; }
 
 }

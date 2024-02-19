@@ -33,7 +33,7 @@
 
 					$.ajax({   	
 				      type: "POST",
-				      url: "php/sendEmail.php",
+				      url: "assets/contact/php/sendEmail.php",
 				      data: $(form).serialize(),
 
 				      beforeSend: function() { 
