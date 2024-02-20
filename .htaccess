@@ -1,4 +1,3 @@
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^home$ index.html [L]
@@ -18,3 +17,5 @@ RewriteRule ^products/body-parts$ products/body-parts.html [L]
 RewriteRule ^products/suspenssion$ products/suspenssion.html [L]
 RewriteRule ^products/ac-parts$ products/ac-parts.html [L]
 RewriteRule ^products/other-parts$ products/other-parts.html [L]
+
+RewriteRule ^products/product-details$ products/product-details.html [L]

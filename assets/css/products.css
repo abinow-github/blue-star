@@ -36,6 +36,7 @@
           overflow: hidden;
          -webkit-line-clamp: 2;
          text-align: center;
+         text-transform: capitalize;
         }
         .call-btn{
             text-decoration: none;
@@ -80,3 +81,59 @@
         }
 }
 /* ............. filter.html END .................. */
+
+
+/* ............. product-details.html .................. */
+.banner2{
+    width: 100%;
+    height: 140px;
+}
+
+.section-1.product-details{
+
+    .card{
+        position: relative;
+        display: flex;
+        border: 0;
+        flex-direction: row;
+        .img-section{/* image section */
+            height: 60vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 100%;
+                height: 80%;
+                object-fit: contain;
+                z-index: 1;
+                position: relative;
+                transform: translateX(15%);
+            }
+        }.img-section::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(to bottom right,#497fc3cc, #d06b70);
+            border-radius: 25px 0 0 25px;
+        }
+
+        .text-section{/* text section */
+            padding: 15px;
+            position: relative;
+            border-radius:0 25px 25px 0;
+            .card-title{
+                text-transform: uppercase;
+                font-size: 30px;
+                font-weight: bold;
+                z-index: 1;
+                position: relative;
+            }
+        }
+    }
+}
+/* ............. product-details.html END .................. */
