@@ -93,7 +93,7 @@
     <div class="row">
 
       <div class="col-lg-3 col-md-4 col-6">
-        <div class="card" onclick="window.location.href='product-details'">
+        <div class="card" onclick="window.location.href='product-details?url=acdelco'">
           <div class="img-div">
             <img src="../assets/img/gallery/products/battery/Acdelco-car battery.png" alt="" srcset="">
           </div>
