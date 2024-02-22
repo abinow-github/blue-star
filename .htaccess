@@ -9,7 +9,7 @@ RewriteRule ^contact$ contact.html [L]
 
 
 RewriteRule ^products/filter$ products/filter.html [L]
-RewriteRule ^products/battery$ products/battery.html [L]
+RewriteRule ^products/battery$ products/battery.php [L]
 RewriteRule ^products/marine-spare-parts$ products/marine-spare-parts.html [L]
 
 RewriteRule ^products/engin-parts$ products/engin-parts.html [L]
@@ -19,4 +19,4 @@ RewriteRule ^products/suspenssion$ products/suspenssion.html [L]
 RewriteRule ^products/ac-parts$ products/ac-parts.html [L]
 RewriteRule ^products/other-parts$ products/other-parts.html [L]
 
-RewriteRule ^products/product-details$ products/product-details.html [L]
+RewriteRule ^products/product-details$ products/product-details.php [L]
