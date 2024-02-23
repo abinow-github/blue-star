@@ -1,0 +1,142 @@
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root{
+  --blue:#14b0a9;
+  --red:#9c0e1e;
+}
+
+.blog-content{
+ 
+  display: grid;
+  place-items: center;
+ 
+}
+
+.blog-content .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-block: 2rem;
+  gap: 2rem;
+}
+
+.blog-content img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.blog-content .card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow: hidden;
+
+  border-radius: 8px;
+
+
+}
+
+
+
+.blog-content .card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+}
+
+
+
+
+
+.blog-content .tag-brown {
+  background: #D1913C;
+background: linear-gradient(to bottom, #FFD194, #D1913C);
+  color: #fafafa;
+}
+
+.blog-content .tag-red {
+  background: #cb2d3e;
+background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.blog-content .card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.blog-content .card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+  justify-content: space-between;
+}
+.blog-content .card__footer .button-div{
+  display: flex;
+  align-items: center;
+}
+.blog-content .card__footer .button-div button{
+  color: white;
+  background-color: var(--red);
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.blog-content .card__footer .button-div button:hover{
+  background-color: #b0141482;
+}
+.blog-content .card__footer .button-div button:focus{
+   outline: none;
+}
+.blog-content .user {
+  display: flex;
+  gap: .5rem;
+}
+
+.blog-content .user__image {
+  border-radius: 50%;
+}
+
+.blog-content .user__info > small {
+  color: #666;
+}
+.blog-content .card__header{
+  height: 235px;
+  overflow: hidden;
+}
+/*.............blog-details.............*/
+.blg-dls .container:nth-child(1){
+  text-align: center;
+}
+.blg-dls .container:nth-child(1) .img-div{
+  margin: 30px;
+ height: 500px;
+ overflow: hidden;
+}
+@media (max-width:600px) {
+  .blg-dls .container:nth-child(1) .img-div{
+    height:210px;
+  }
+}
+.blg-dls .container:nth-child(1) img{
+  width: 100%;
+}
+.blg-dls .container:nth-child(2) .heading{
+  padding-bottom: 4rem;
+}
+.blg-dls .container:nth-child(2) .contents{
+  padding-bottom: 30px;
+}
+
+

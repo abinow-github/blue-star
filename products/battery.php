@@ -91,62 +91,76 @@
  <section class="section-1 filter">
   <div class="container">
     <div class="row">
+    <?php
+$conn = mysqli_connect('localhost', 'root', '', 'database');
+$query = $conn -> prepare('SELECT * FROM `blog_posts`');
+$query -> execute();
+$query_result = $query -> get_result();
+echo "<h1>Blog Posts</h1>";
+while($row=$query_result->fetch_assoc())
+{
+              ?>
 
       <div class="col-lg-3 col-md-4 col-6">
-        <div class="card" onclick="window.location.href='product-details?url=acdelco'">
+        <div class="card" onclick="window.location.href='details/<?php echo $row['url']; ?>'">
           <div class="img-div">
-            <img src="../assets/img/gallery/products/battery/Acdelco-car battery.png" alt="" srcset="">
+            <img src="../dashboard/gallery/battery/<?php echo $row['images']; ?>" alt="" srcset="">
           </div>
           <div class="card-body">
             <div class="card-title">Acdelco-car battery</div>
-            <a href="product-details" class="call-btn mx-auto">Call Now</a>
+            <a href="product-details" class="call-btn mx-auto">Enquiry Now</a>
           </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="card">
+      </div> 
+
+      <?php 
+              }
+      ?>
+
+      <!-- <div class="col-lg-3 col-md-4 col-6">
+        <div class="card" onclick="window.location.href='product-details?url=acdelco'">
           <div class="img-div">
             <img src="../assets/img/gallery/products/battery/Solite-automotive battery.png" alt="" srcset="">
           </div>
           <div class="card-body">
             <div class="card-title">Solite-automotive battery</div>
-            <a href="" class="call-btn mx-auto">Call Now</a>
+            <a href="" class="call-btn mx-auto">Enquiry Now</a>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-6">
-        <div class="card">
+        <div class="card" onclick="window.location.href='product-details?url=acdelco'">
           <div class="img-div">
             <img src="../assets/img/gallery/products/battery/Varta-automotive battery.png" alt="" srcset="">
           </div>
           <div class="card-body">
             <div class="card-title">Varta-automotive battery</div>
-            <a href="" class="call-btn mx-auto">Call Now</a>
+            <a href="" class="call-btn mx-auto">Enquiry Now</a>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-6">
-        <div class="card">
+        <div class="card" onclick="window.location.href='product-details?url=acdelco'">
           <div class="img-div">
             <img src="../assets/img/gallery/products/battery/Kays-battery.png" alt="" srcset="">
           </div>
           <div class="card-body">
             <div class="card-title">Kays-battery</div>
-            <a href="" class="call-btn mx-auto">Call Now</a>
+            <a href="" class="call-btn mx-auto">Enquiry Now</a>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-6">
-        <div class="card">
+        <div class="card" onclick="window.location.href='product-details?url=acdelco'">
           <div class="img-div">
             <img src="../assets/img/gallery/products/battery/Optima-battery.png" alt="" srcset="">
           </div>
           <div class="card-body">
             <div class="card-title">Optima-battery</div>
-            <a href="" class="call-btn mx-auto">Call Now</a>
+            <a href="" class="call-btn mx-auto">Enquiry Now</a>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>

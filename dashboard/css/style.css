@@ -1,0 +1,118 @@
+:root{
+    --blue:#14b0a9;
+    --red:#9c0e1e;
+    --primary_clr:#026f20;
+    --heading-clr:#026f20b5;
+    --secondary-clr:#b64646d4;
+  }
+
+nav{
+    background-color: #3dbb5f !important;
+    height: 90px;
+}
+nav .profile{
+    right: 20px;
+    position: absolute;
+}
+nav .dropdown-toggle::after{
+    visibility: hidden;
+    display: none;
+}
+nav .navbar-brand{
+    color: white;
+}
+li.active{
+    background-color: var(--secondary-clr);
+}
+.profile-menu{
+    right: 10px;
+    left: auto !important;
+}
+.contents .side-menu{
+    float: left;
+    background-color: #b014141f;
+    height: 200rem;
+    padding-top: 20px;
+}
+.contents .side-menu ul{
+    list-style-type: none;
+    line-height: 50px;
+    width: 200px;
+    padding: 0;
+}
+.contents .side-menu ul li{
+   padding-left: 10px;
+   cursor: pointer;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.236);
+   img{
+    height: 30px;
+    padding-right: 5px;
+    filter: grayscale(1);
+   }
+}
+.contents .side-menu ul li.active img{
+    filter: grayscale(0);
+}
+.contents .side-menu ul li a{
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    color: black;
+}
+.contents .side-menu ul li:hover{
+    background-color: var(--red) !important;
+    color: white;
+    img{
+        filter: grayscale(0);
+    }
+}
+.contents .side-menu ul li a:hover {
+    color: white;
+}
+
+.contents .side-menu ul i{
+    font-size: 20px;
+}
+.content{
+    padding: 20px;
+    overflow: hidden;
+}
+/* login page css*/
+.login-page{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+.login-page form{
+    width: 30%;
+}
+.login-page form > button{
+    text-align: center;
+}
+
+/* ck editor*/
+.ck.ck-editor{
+    width: 100% !important;
+}
+.blog-content .card__body {
+    height: 280px;
+}
+.blog-content .card__body p{
+    margin: 0;
+}
+.blog-content .card__header {
+    height: 200px;
+    overflow: hidden;
+}
+
+
+/* submit button */
+.submit-btn{
+    width: 100px;
+    padding: 10px;
+    background-color: var(--primary_clr);
+    color: white;
+    border: 0;
+    margin-left: 150px;
+}

@@ -1,3 +1,32 @@
+<?php
+define('BASE_URL', 'http://localhost/htdocs/bluestar/');
+include('../dashboard/root/db.php');
+
+// Check if the 'url' parameter is set in the URL
+if(isset($_GET['url'])) {
+    // Sanitize the input to prevent SQL injection
+    $url = $mysqli->real_escape_string($_GET['url']);
+
+   
+
+    // Prepare the SQL query using a prepared statement
+    $sql = "SELECT * FROM battery WHERE url = ?";
+    
+    // Bind the parameter to the prepared statement
+    if($stmt = $mysqli->prepare($sql)) {
+        $stmt->bind_param("s", $url);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Get the result
+        $result = $stmt->get_result();
+
+        // Check if there are rows in the result
+        if ($result->num_rows > 0) {
+            // Fetch the data and display it
+            while ($row = $result->fetch_assoc()) {
+                ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,7 +143,7 @@
           <h4 class="h4"><span>Unit</span>40kg</h4>
         </div>
           <div class="buttons-div d-flex">
-            <button>Call Now</button>
+            <button>Enquiry Now</button>
             <div class="pre-nxt-div">
               <a class="prev" href=""><i class="fa-solid fa-backward"></i>Prev.</a>
               <a class="next" href=""><i class="fa-solid fa-forward"></i>Next</a>
@@ -125,7 +154,27 @@
   </div>
 </div>
 
+<?php
+           }
+        } else {
+            // No rows found
+            echo "No data found.";
+        }
 
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Error in preparing the statement
+        echo "Error in preparing SQL statement.";
+    }
+} else {
+    // 'url' parameter is not set in the URL
+    echo "URL parameter 'url' is missing.";
+}
+
+// Close the database connection
+$mysqli->close();
+?>
 
 
 
