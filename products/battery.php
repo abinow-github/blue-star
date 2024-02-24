@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,29 +100,43 @@ $query = $conn->prepare('SELECT * FROM `battery`');
 $query->execute();
 $query_result = $query->get_result();
 
-while ($row = $query_result->fetch_assoc()) {
+
+
+$nextUrls = array();
+
+for (; $row = $query_result->fetch_assoc(); ) {
     $table = 'battery';
     $_SESSION['table'] = $table;
-    
-              ?>
 
-      <div class="col-lg-3 col-md-4 col-6">
-        <a class="card" onclick="window.location.href='battery/<?php echo $row['url']; ?>'">
-          <div class="img-div">
-            <img src="../dashboard/gallery/battery/<?php echo $row['images']; ?>" alt="" srcset="">
-          </div>
-          <div class="card-body">
-            <div class="card-title">Acdelco-car battery</div>
-            <a href="product-details" class="call-btn mx-auto">Enquiry Now</a>
-          </div>
+    // Get the next URL and store it in the session
+    $nexturl = $row['url'];  // Assuming there is a column named 'next_url' in your database
+    $_SESSION['url'] = $nexturl;
+    $nextUrls[] = $nexturl;
+    ?>
+
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="card" onclick="window.location.href='battery/<?php echo $row['url'] ?>'">
+            <div class="img-div">
+                <img src="../dashboard/gallery/battery/<?php echo $row['images']; ?>" alt="" srcset="">
+            </div>
+            <div class="card-body">
+                <div class="card-title"><?php echo $row['name']; ?></div>
+                <a href="product-details" class="call-btn mx-auto">Enquiry Now</a>
+            </div>
         </div>
-</a> 
+    </div>
 
-      <?php 
-              }
-      ?>
+<?php
+}
 
-      <!-- <div class="col-lg-3 col-md-4 col-6">
+// Store all next URLs in the session
+$_SESSION['next_urls'] = $nextUrls;
+?>
+
+
+<br><br><br>
+
+       <!-- <div class="col-lg-3 col-md-4 col-6">
         <div class="card" onclick="window.location.href='product-details?url=acdelco'">
           <div class="img-div">
             <img src="../assets/img/gallery/products/battery/Solite-automotive battery.png" alt="" srcset="">

@@ -8,11 +8,10 @@ $url = $_GET['url'];
 // Retrieve the value from the session
 if (isset($_SESSION['table'])) {
     $table = $_SESSION['table'];
-    // Don't unset the session variable unless you want to clear it explicitly
-    // unset($_SESSION['table']);
 } else {
     $table = ''; // Set a default value if the session variable is not set
 }
+
 
 $query = $conn->prepare('SELECT * FROM '.$table.' WHERE `url`= ?');
 $query->bind_param('s', $url);
@@ -20,7 +19,28 @@ $query->execute();
 $query_result = $query->get_result();
 
 $query_data = $query_result->fetch_assoc();
-                ?>
+
+// Get all URLs from your database based on your logic
+$allUrlsQuery = $conn->prepare('SELECT url FROM '.$table);
+$allUrlsQuery->execute();
+$allUrlsResult = $allUrlsQuery->get_result();
+$allUrls = [];
+while ($row = $allUrlsResult->fetch_assoc()) {
+    $allUrls[] = $row['url'];
+}
+
+// Find the index of the current URL in the array
+$currentUrlIndex = array_search($url, $allUrls);
+
+// Calculate the index of the next URL considering the looping
+$nextUrlIndex = ($currentUrlIndex + 1) % count($allUrls);
+
+// Get the next URL
+$nextUrl = $allUrls[$nextUrlIndex];
+
+// Store the next URL in the session
+$_SESSION['next_url'] = $nextUrl;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +48,9 @@ $query_data = $query_result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blue star</title>
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/logo/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo BASE_URL; ?>/assets/img/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo BASE_URL; ?>/assets/img/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo BASE_URL; ?>/assets/img/logo/favicon-16x16.png">
     <link rel="manifest" href="../assets/img/logo/site.webmanifest">
     <link rel="mask-icon" href="../assets/img/logo/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -80,7 +100,7 @@ $query_data = $query_result->fetch_assoc();
                <div class="hide-on-lg close-div"> <button class="close-btn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></div>
                <ul class="navbar-nav mx-auto ">
                  <li class="nav-item">
-                   <a class="nav-link" aria-current="page" href="../home">Home</a>
+                   <a class="nav-link" aria-current="page" href="<?php echo BASE_URL; ?>/home">Home</a>
                  </li>
                  <li class="nav-item">
                    <a class="nav-link" href="../about">About</a>
@@ -93,15 +113,15 @@ $query_data = $query_result->fetch_assoc();
                      Products 
                    </a>
                    <ul class="dropdown-menu"  id="dropdown-menu">
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="filter"><img src="../assets/img/icons/dropdown/filters.png" alt="" srcset="">Filters</a></li>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="battery"><img src="../assets/img/icons/dropdown/battery.png" alt="" srcset="">Battery</a></li>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="marine-spare-parts"><img src="../assets/img/icons/dropdown/marine-spare-parts.png" alt="" srcset="">Marine Spare Parts</a></li>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="engin-parts"><img src="../assets/img/icons/dropdown/engin-parts.png" alt="" srcset="">Engine parts</a></li><br>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="electrical-parts"><img src="../assets/img/icons/dropdown/electrical-parts.png" alt="" srcset="">electrical parts</a></li>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="body-parts"><img src="../assets/img/icons/dropdown/body-parts.png" alt="" srcset="">body parts</a></li>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="suspenssion"><img src="../assets/img/icons/dropdown/suspension.png" alt="" srcset="">suspenssion</a></li>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="ac-parts"><img src="../assets/img/icons/dropdown/ac-parts.png" alt="" srcset="">a/c parts</a></li>
-                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="other-parts"><img src="../assets/img/icons/dropdown/other-parts.png" alt="" srcset="">Other parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../filter"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/filters.png" alt="" srcset="">Filters</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../battery"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/battery.png" alt="" srcset="">Battery</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../marine-spare-parts"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/marine-spare-parts.png" alt="" srcset="">Marine Spare Parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../engin-parts"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/engin-parts.png" alt="" srcset="">Engine parts</a></li><br>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../electrical-parts"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/electrical-parts.png" alt="" srcset="">electrical parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../body-parts"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/body-parts.png" alt="" srcset="">body parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../suspenssion"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/suspension.png" alt="" srcset="">suspenssion</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../ac-parts"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/ac-parts.png" alt="" srcset="">a/c parts</a></li>
+                     <li class="col-lg-3 col-md-3 col-6"><a class="dropdown-item" href="../other-parts"><img src="<?php echo BASE_URL; ?>/assets/img/icons/dropdown/other-parts.png" alt="" srcset="">Other parts</a></li>
                    </ul>
                  </li>
                  <li class="nav-item">
@@ -140,7 +160,7 @@ $query_data = $query_result->fetch_assoc();
             <button>Enquiry Now</button>
             <div class="pre-nxt-div">
               <a class="prev" href="<?php echo BASE_URL; ?>/products/battery/<?php echo $prev_query_data['url']; ?>"><i class="fa-solid fa-backward"></i>Prev.</a>
-              <a class="next" href=""><i class="fa-solid fa-forward"></i>Next</a>
+              <a class="next" href="<?php echo BASE_URL; ?>/products/battery/<?php echo $nextUrl; ?>"><i class="fa-solid fa-forward"></i>Next</a>
             </div>
           </div>
       </div>
@@ -151,14 +171,57 @@ $query_data = $query_result->fetch_assoc();
 
 
 
- <footer id="footer"></footer>
+ <footer>
+ <div class="container">
+    <div class="row">
+      <div class="col-md-4 pr-md-5 d-flex text-center align-items-center justify-content-center" >
+        <a href="#" class="footer-site-logo d-block mb-4"><img src="<?php echo BASE_URL; ?>/assets/img/logo/BLUE STAR LOGO.png" height="50px" alt="" srcset=""></a>
+      </div>
+      <div class="col-md">
+        <h3>Menu</h3>
+        <ul class="list-unstyled nav-links">
+          <li><a href="<?php echo BASE_URL; ?>/home">Home</a></li>
+          <li><a href="<?php echo BASE_URL; ?>/about">About Us</a></li>
+          <li><a href="<?php echo BASE_URL; ?>/brands">Brands</a></li>
+          <li><a href="<?php echo BASE_URL; ?>/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md">
+        <h3>Products</h3>
+        <ul class="list-unstyled nav-links">
+          <li><a href="battery">Battery</a></li>
+          <li><a href="filter">Filter</a></li>
+          <li><a href="marine-spare-parts">Marine Spare Parts</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-md">
+        <h3>Follow Us</h3>
+        <ul class="social list-unstyled">
+          <li><a href="#" class="pl-0"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+        </ul>
+      </div>
+    </div> 
+
+    <div class="row ">
+      <div class="col-12 text-center">
+        <div class="copyright mt-5 pt-5">
+          <p><small>&copy; 2024 All Rights Reserved.</small></p>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <img src="help/composition-different-car-accessories.jpg" class="pos-abs-img" alt="" srcset="">
+ </footer>
 
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Then include Slick slider script -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script src="../assets/js/script.js"></script>
-    <script src="../assets/js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script src="/assets/js/script.js"></script>
+    <script src="/assets/js/footer.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
