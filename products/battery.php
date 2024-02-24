@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,17 +93,19 @@
   <div class="container">
     <div class="row">
     <?php
-$conn = mysqli_connect('localhost', 'root', '', 'database');
-$query = $conn -> prepare('SELECT * FROM `blog_posts`');
-$query -> execute();
-$query_result = $query -> get_result();
-echo "<h1>Blog Posts</h1>";
-while($row=$query_result->fetch_assoc())
-{
+$conn = mysqli_connect('localhost', 'root', '', 'bluestar');
+$query = $conn->prepare('SELECT * FROM `battery`');
+$query->execute();
+$query_result = $query->get_result();
+
+while ($row = $query_result->fetch_assoc()) {
+    $table = 'battery';
+    $_SESSION['table'] = $table;
+    
               ?>
 
       <div class="col-lg-3 col-md-4 col-6">
-        <div class="card" onclick="window.location.href='details/<?php echo $row['url']; ?>'">
+        <a class="card" onclick="window.location.href='battery/<?php echo $row['url']; ?>'">
           <div class="img-div">
             <img src="../dashboard/gallery/battery/<?php echo $row['images']; ?>" alt="" srcset="">
           </div>
@@ -111,7 +114,7 @@ while($row=$query_result->fetch_assoc())
             <a href="product-details" class="call-btn mx-auto">Enquiry Now</a>
           </div>
         </div>
-      </div> 
+</a> 
 
       <?php 
               }

@@ -1,31 +1,25 @@
 <?php
-define('BASE_URL', 'http://localhost/htdocs/bluestar/');
-include('../dashboard/root/db.php');
+session_start();
+define('BASE_URL', 'http://localhost/blue-star/');
 
-// Check if the 'url' parameter is set in the URL
-if(isset($_GET['url'])) {
-    // Sanitize the input to prevent SQL injection
-    $url = $mysqli->real_escape_string($_GET['url']);
+$conn = mysqli_connect('localhost', 'root', '', 'bluestar');
+$url = $_GET['url'];
 
-   
+// Retrieve the value from the session
+if (isset($_SESSION['table'])) {
+    $table = $_SESSION['table'];
+    // Don't unset the session variable unless you want to clear it explicitly
+    // unset($_SESSION['table']);
+} else {
+    $table = ''; // Set a default value if the session variable is not set
+}
 
-    // Prepare the SQL query using a prepared statement
-    $sql = "SELECT * FROM battery WHERE url = ?";
-    
-    // Bind the parameter to the prepared statement
-    if($stmt = $mysqli->prepare($sql)) {
-        $stmt->bind_param("s", $url);
+$query = $conn->prepare('SELECT * FROM '.$table.' WHERE `url`= ?');
+$query->bind_param('s', $url);
+$query->execute();
+$query_result = $query->get_result();
 
-        // Execute the statement
-        $stmt->execute();
-
-        // Get the result
-        $result = $stmt->get_result();
-
-        // Check if there are rows in the result
-        if ($result->num_rows > 0) {
-            // Fetch the data and display it
-            while ($row = $result->fetch_assoc()) {
+$query_data = $query_result->fetch_assoc();
                 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +37,8 @@ if(isset($_GET['url'])) {
     <meta name="theme-color" content="#ffffff">
 
     <!-- css -->
-    <link rel="stylesheet" href="../assets/css/style2.css">
-    <link rel="stylesheet" href="../assets/css/products.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style2.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/products.css">
 
     <!-- bootsrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +50,7 @@ if(isset($_GET['url'])) {
 </head>
 <style>
   .container.product-details .imgBx:before {
-    content: 'Acdelco';
+    content: '<?php echo $query_data['brand']?>';
     position: absolute;
     top: 0px;
     left: 24px;
@@ -73,7 +67,7 @@ if(isset($_GET['url'])) {
         <div id="mainNavigation">
            <nav role="navigation">
              <div class="text-center">
-               <img src="../assets/img/logo/BLUE STAR LOGO.png" alt="" class="invert">
+               <img src="<?php echo BASE_URL; ?>/assets/img/logo/BLUE STAR LOGO.png" alt="" class="invert">
              </div>
            </nav>
            <div class="navbar-expand-lg">
@@ -127,13 +121,13 @@ if(isset($_GET['url'])) {
 
  <div class="container product-details mt-5 mb-5">
   <div class="imgBx">
-      <img src="../assets/img/gallery/products/battery/Acdelco-car battery.png" alt="Nike Jordan Proto-Lyte Image">
+      <img src="<?php echo BASE_URL; ?>/dashboard/gallery/battery/<?php echo $query_data['images'] ?>" alt="Nike Jordan Proto-Lyte Image">
   </div>
   <div class="details">
 
       <div class="content">
         <div class="title-specs-div">
-          <h2>Acdelco-car battery<br>
+          <h2><?php echo $query_data['name']?>
               <span>Battery</span>
           </h2>
           <p class="description">dvhsdinovhiofughi dusfgusdigiu dufgiudlsguhlsdgiurh isurgiurntiusnunghdvhsdinovhiofughi dusfgusdigiu dufgiudlsguhlsdg</p>
@@ -145,7 +139,7 @@ if(isset($_GET['url'])) {
           <div class="buttons-div d-flex">
             <button>Enquiry Now</button>
             <div class="pre-nxt-div">
-              <a class="prev" href=""><i class="fa-solid fa-backward"></i>Prev.</a>
+              <a class="prev" href="<?php echo BASE_URL; ?>/products/battery/<?php echo $prev_query_data['url']; ?>"><i class="fa-solid fa-backward"></i>Prev.</a>
               <a class="next" href=""><i class="fa-solid fa-forward"></i>Next</a>
             </div>
           </div>
@@ -154,27 +148,6 @@ if(isset($_GET['url'])) {
   </div>
 </div>
 
-<?php
-           }
-        } else {
-            // No rows found
-            echo "No data found.";
-        }
-
-        // Close the statement
-        $stmt->close();
-    } else {
-        // Error in preparing the statement
-        echo "Error in preparing SQL statement.";
-    }
-} else {
-    // 'url' parameter is not set in the URL
-    echo "URL parameter 'url' is missing.";
-}
-
-// Close the database connection
-$mysqli->close();
-?>
 
 
 

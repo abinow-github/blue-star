@@ -165,6 +165,10 @@
     font-weight: bolder;
     line-height: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 1;
 }
 
 .container.product-details .details h2 span {
@@ -363,6 +367,9 @@
     font-weight: bolder;
     line-height: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .container.product-details .details h2 span {

@@ -19,4 +19,4 @@ RewriteRule ^products/suspenssion$ products/suspenssion.html [L]
 RewriteRule ^products/ac-parts$ products/ac-parts.html [L]
 RewriteRule ^products/other-parts$ products/other-parts.html [L]
 
-RewriteRule ^product/details/([^/]+)/? products/product-details.php?url=$1 [L,QSA]
+RewriteRule ^products/battery/([^/]+)/? products/product-details.php?url=$1 [L,QSA]
