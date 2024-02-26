@@ -7,7 +7,7 @@
   }
 
 nav{
-    background-color: #3dbb5f !important;
+    background-color: #336db6 !important;
     height: 90px;
 }
 nav .profile{
@@ -52,6 +52,9 @@ li.active{
 }
 .contents .side-menu ul li.active img{
     filter: grayscale(0);
+}
+.contents .side-menu ul li.active{
+    background-color: var(--red) !important;
 }
 .contents .side-menu ul li a{
     text-decoration: none;

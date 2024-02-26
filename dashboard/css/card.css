@@ -140,3 +140,29 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
 }
 
 
+table tr:nth-child(even){
+  background: rgb(169 169 224 / 32%);
+}
+table tr td:nth-child(1),table tr th:nth-child(1){
+  padding-left: 10px;
+  text-align: center;
+}
+table{
+  th{
+    padding: 10px 0;
+
+  }
+  img{
+    margin: 20px 0;
+  }
+  .edit,.delete{
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+  }.edit{
+    background: #3dbb5f;
+  }.delete{
+    background: rgb(211, 62, 62);
+  }
+}

@@ -34,7 +34,7 @@ if (isset($_SESSION['upload_error'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <nav class="navbar navbar-expand-lg navbar-light w-100" style="position: fixed;top:0;height:100px;">
         <div class="container-fluid">
           <a class="navbar-brand" style="color:white">Dashboard</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@ if (isset($_SESSION['upload_error'])) {
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img
-                    src="../../assets/img/logo/favicon.ico"
+                    src="../user.png"
                     class="rounded-circle"
                     height="50"
                     alt="bluestar"
@@ -68,8 +68,8 @@ if (isset($_SESSION['upload_error'])) {
       </nav>
    
 
-<div class="contents">
-    <div class="side-menu">
+<div class="contents" style="margin-top: 100px;">
+    <div class="side-menu" style="position: fixed;">
         <ul>
             <li class="active"><a href="" style="color:#fff"><img src="../../assets/img/icons/dropdown/battery.png" alt="">Battery</a></li>
             <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/filters.png" alt="">Filter</a></li>
@@ -82,8 +82,8 @@ if (isset($_SESSION['upload_error'])) {
             <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/other-parts.png" alt="">Other Parts</a></li>
         </ul>
     </div>
-    <div class="content">
-    <div class="container-fluid" style="background-color: #3dbb5f;color:white;padding:10px"><h4> Add Battery</h4></div>
+    <div class="content" style="margin-left: 200px;">
+    <div class="container-fluid" style="background-color: #336db6;color:white;padding:10px"><h4> Add Battery</h4></div>
     <div class="blog-content">
 				<div class="container">
 				 
@@ -143,6 +143,11 @@ if (isset($_SESSION['upload_error'])) {
          <div class="form-group col-md-6">
          <label>URL</label>
               <input class="form-control" type="text" name="url">
+          </div><br><br><br>
+
+         <div class="form-group col-md-6">
+         <label>Phone Number (optional)</label>
+              <input class="form-control" type="number" name="phone" placeholder="+971 50 761 1980">
           </div><br><br><br>
 
        

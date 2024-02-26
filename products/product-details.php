@@ -34,12 +34,16 @@ $currentUrlIndex = array_search($url, $allUrls);
 
 // Calculate the index of the next URL considering the looping
 $nextUrlIndex = ($currentUrlIndex + 1) % count($allUrls);
+$prevUrlIndex = ($currentUrlIndex - 1 + count($allUrls)) % count($allUrls);
+
 
 // Get the next URL
 $nextUrl = $allUrls[$nextUrlIndex];
+$prevUrl = $allUrls[$prevUrlIndex];
 
 // Store the next URL in the session
 $_SESSION['next_url'] = $nextUrl;
+$_SESSION['prev_url'] = $prevUrl;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,7 +152,7 @@ $_SESSION['next_url'] = $nextUrl;
       <div class="content">
         <div class="title-specs-div">
           <h2><?php echo $query_data['name']?>
-              <span>Battery</span>
+              <span><?php echo $table ?></span>
           </h2>
           <p class="description">dvhsdinovhiofughi dusfgusdigiu dufgiudlsguhlsdgiurh isurgiurntiusnunghdvhsdinovhiofughi dusfgusdigiu dufgiudlsguhlsdg</p>
           <h4 class="h4"><span>Brand</span>Acdelco</h4>
@@ -159,8 +163,8 @@ $_SESSION['next_url'] = $nextUrl;
           <div class="buttons-div d-flex">
             <button>Enquiry Now</button>
             <div class="pre-nxt-div">
-              <a class="prev" href="<?php echo BASE_URL; ?>/products/battery/<?php echo $prev_query_data['url']; ?>"><i class="fa-solid fa-backward"></i>Prev.</a>
-              <a class="next" href="<?php echo BASE_URL; ?>/products/battery/<?php echo $nextUrl; ?>"><i class="fa-solid fa-forward"></i>Next</a>
+              <a class="prev" href="<?php echo BASE_URL; ?>products/battery/<?php echo $prevUrl; ?>"><i class="fa-solid fa-backward"></i>Prev.</a>
+              <a class="next" href="<?php echo BASE_URL; ?>products/battery/<?php echo $nextUrl; ?>"><i class="fa-solid fa-forward"></i>Next</a>
             </div>
           </div>
       </div>
@@ -220,8 +224,8 @@ $_SESSION['next_url'] = $nextUrl;
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Then include Slick slider script -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script src="/assets/js/script.js"></script>
-    <script src="/assets/js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/footer.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

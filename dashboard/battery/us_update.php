@@ -14,12 +14,27 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
     <title>Edit Image and Caption</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
+<style>
+    input{
+        border: 0;
+        outline: 0;
+        padding: 10px;
+    }
+    input:focus-visible{
+        border: 0;
+    }
+    td{
+        overflow-x: hidden;
+    }
+    table tr td:nth-child(1){
+        font-weight: bold;
+    }
+</style>
 <body>
    <?php
    include("../root/db.php");
    $id=$_GET['sa'];
-   $sql="SELECT * FROM news WHERE id='$id'";
+   $sql="SELECT * FROM battery WHERE id='$id'";
    $result=$mysqli->query($sql);
    if($result->num_rows>0){
     while($row=$result->fetch_assoc()){
@@ -30,7 +45,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                     <form action="us_update_back.php" method="post" enctype="multipart/form-data" id="formID" class="formular">
                         <table width="100%" border="1" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td width="175">ID</td>
+                                <td width="175" style="text-align: center;">ID</td>
                                 <td width="419"><input type="text" name="image_id" value="<?php echo $row['id'];?>" readonly/></td>
                             </tr>
                             
@@ -43,7 +58,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
                                   for ($i = 0; $i < $num; $i++) {
                                     $firstImage = trim($imageFilenames[$i]);
-                                    $imagePath = "../news-images/" . $firstImage;
+                                    $imagePath = "../gallery/battery/" . $firstImage;
                                     ?>
                                       <img src="<?php echo $imagePath; ?>" alt="Current Image" style="max-width: 300px; max-height: 300px;">
                                       <?php
@@ -58,19 +73,39 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                             </tr>
                             
                             <tr>
-                                <td style="text-align: center;">News Title</td>
-                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="title" value="<?php echo $row['title'];?>"/></td>
+                                <td style="text-align: center;">Product Name</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="name" value="<?php echo $row['name'];?>"/></td>
                             </tr>
-                            
-                            <tr style="height: 50px;">
-                                <td style="text-align: center;">Date</td>
-                                <td style="width: 90%;"><input  class="form-control" type="date" name="date" value="<?php echo $row['date'];?>"/></td>
-                            </tr>
-                            
                             <tr>
-                                <td style="text-align: center;">News Content</td>
-                                <td style="width: 90%;"><textarea name="text" id="editor"><?php echo $row['text'];?></textarea></td>
+                                <td style="text-align: center;">Brand</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="brand" value="<?php echo $row['brand'];?>"/></td>
                             </tr>
+                            <tr>
+                                <td style="text-align: center;">Weight</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="weight" value="<?php echo $row['weight'];?>"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">Diamension</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="diamension" value="<?php echo $row['diamension'];?>"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">Unit</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="unit" value="<?php echo $row['unit'];?>"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">Description</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="description" value="<?php echo $row['description'];?>"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">URL</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="text" name="url" value="<?php echo $row['url'];?>"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">Phone Number</td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="number" name="phone" value="<?php echo $row['phone'];?>"/></td>
+                            </tr>
+                            
+                         
                             
                         </table>
                         <br>

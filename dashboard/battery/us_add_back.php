@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $unit = mysqli_real_escape_string($mysqli, $_POST["unit"]);
     $description = mysqli_real_escape_string($mysqli, $_POST["description"]);
     $url = mysqli_real_escape_string($mysqli, $_POST["url"]);
+    $phone = mysqli_real_escape_string($mysqli, $_POST["phone"]);
 
     // Check product name not empty
     if (empty($name)) {
@@ -31,6 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($url)) {
         $url=$name;
+    }
+    $url = preg_replace('/[^a-zA-Z0-9\-]/', '', $url);
+    $url = str_replace(' ', '-', $url);
+    if (empty($phone)) {
+        $phone='+971507611980';
     }
 
     $uploadDirectory = "../gallery/battery/";
@@ -68,8 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imagePaths = implode(',', $uploadedFiles);
 
     // Insert data into the news table
-    $insertQuery = "INSERT INTO battery (images, name, brand, weight, diamension, unit, description, url)
-                    VALUES ('$imagePaths','$name', '$brand', '$weight', '$diamension', '$unit', '$description', '$url')";
+    $insertQuery = "INSERT INTO battery (images, name, brand, weight, diamension, unit, description, url, phone)
+                    VALUES ('$imagePaths','$name', '$brand', '$weight', '$diamension', '$unit', '$description', '$url' , '$phone')";
     $result = $mysqli->query($insertQuery);
 
     if ($result) {

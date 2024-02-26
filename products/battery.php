@@ -108,10 +108,6 @@ for (; $row = $query_result->fetch_assoc(); ) {
     $table = 'battery';
     $_SESSION['table'] = $table;
 
-    // Get the next URL and store it in the session
-    $nexturl = $row['url'];  // Assuming there is a column named 'next_url' in your database
-    $_SESSION['url'] = $nexturl;
-    $nextUrls[] = $nexturl;
     ?>
 
     <div class="col-lg-3 col-md-4 col-6">
