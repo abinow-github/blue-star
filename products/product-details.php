@@ -112,6 +112,9 @@ $_SESSION['prev_url'] = $prevUrl;
                  <li class="nav-item">
                    <a class="nav-link" href="../brands">Brands</a>
                  </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="../branch">Branches</a>
+                </li>
                  <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                      Products 

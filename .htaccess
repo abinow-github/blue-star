@@ -4,6 +4,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^home$ index.html [L]
 RewriteRule ^about$ about.html [L]
 RewriteRule ^brands$ brands.html [L]
+RewriteRule ^branch$ branch.html [L]
 RewriteRule ^contact$ contact.html [L]
 
 

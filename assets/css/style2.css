@@ -252,11 +252,11 @@
              /*  text-shadow:1px 1px 2px #fff; */
             }
             .invert{/*nav logo*/
-              width: 200px;
+              width: 160px;
               transition: 0.4s;
            }
            .scrolled .invert{
-              width: 100px;
+              width: 160px;
            }
       
             .dropdown-menu {/* dropdown */
@@ -411,11 +411,11 @@
              /*  text-shadow:1px 1px 2px #fff; */
             }
             .invert{/*nav logo*/
-              width: 100px;
+              width: 160px;
               transition: 0.4s;
            }
            .scrolled .invert{
-              width: 100px;
+              width: 160px;
            }
       
             .dropdown-menu {/* dropdown */
@@ -477,6 +477,7 @@
               display: flex;
               justify-content: space-between;
               padding: 0 15px;
+              height: 90px;
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
             .navbar-expand-lg{
               display: flex;
@@ -685,3 +686,29 @@
             }
         }
         /*............................................. brands.html END ...................................*/
+
+
+
+        /*................................................ branch.html...................................*/
+        .section-1.branch{
+          .col-md-4{
+              margin-bottom: 30px;
+          }
+          .card{
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0px 0 2px 1px #45494e99;
+              height: 100%;
+              border: 0;
+              padding: 30px 10px;
+              .location{
+                font-size: 40px;
+              }
+              .card-title{
+                font-size: larger;
+                text-transform: capitalize;
+                font-weight: bold;
+              }
+          }
+      }
+      /*............................................. branch.html END ...................................*/
