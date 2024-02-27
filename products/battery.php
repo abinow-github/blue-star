@@ -76,7 +76,7 @@ session_start();
                    </ul>
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link" href="contact">Contact</a>
+                   <a class="nav-link" href="../contact">Contact</a>
                  </li>
                </ul>
              </div>
@@ -98,21 +98,15 @@ session_start();
   <div class="container">
     <div class="row">
     <?php
-$conn = mysqli_connect('localhost', 'root', '', 'bluestar');
-$query = $conn->prepare('SELECT * FROM `battery`');
+    include('../dashboard/root/db.php');
+$query = $mysqli->prepare('SELECT * FROM `battery`');
 $query->execute();
 $query_result = $query->get_result();
-
-
-
 $nextUrls = array();
-
 for (; $row = $query_result->fetch_assoc(); ) {
     $table = 'battery';
     $_SESSION['table'] = $table;
-
     ?>
-
     <div class="col-lg-3 col-md-4 col-6">
         <div class="card" onclick="window.location.href='battery/<?php echo $row['url'] ?>'">
             <div class="img-div">
@@ -120,14 +114,13 @@ for (; $row = $query_result->fetch_assoc(); ) {
             </div>
             <div class="card-body">
                 <div class="card-title"><?php echo $row['name']; ?></div>
-                <a href="product-details" class="call-btn mx-auto">Enquiry Now</a>
+                <a href="tel:<?php echo $row['phone']; ?>" class="call-btn mx-auto">Enquiry Now</a>
             </div>
         </div>
     </div>
 
 <?php
 }
-
 // Store all next URLs in the session
 $_SESSION['next_urls'] = $nextUrls;
 ?>

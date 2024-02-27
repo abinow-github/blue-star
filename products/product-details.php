@@ -1,10 +1,7 @@
 <?php
 session_start();
-define('BASE_URL', 'http://localhost/blue-star/');
-
-$conn = mysqli_connect('localhost', 'root', '', 'bluestar');
+include('../dashboard/root/db.php');
 $url = $_GET['url'];
-
 // Retrieve the value from the session
 if (isset($_SESSION['table'])) {
     $table = $_SESSION['table'];
@@ -12,8 +9,7 @@ if (isset($_SESSION['table'])) {
     $table = ''; // Set a default value if the session variable is not set
 }
 
-
-$query = $conn->prepare('SELECT * FROM '.$table.' WHERE `url`= ?');
+$query = $mysqli->prepare('SELECT * FROM '.$table.' WHERE `url`= ?');
 $query->bind_param('s', $url);
 $query->execute();
 $query_result = $query->get_result();
@@ -21,7 +17,7 @@ $query_result = $query->get_result();
 $query_data = $query_result->fetch_assoc();
 
 // Get all URLs from your database based on your logic
-$allUrlsQuery = $conn->prepare('SELECT url FROM '.$table);
+$allUrlsQuery = $mysqli->prepare('SELECT url FROM '.$table);
 $allUrlsQuery->execute();
 $allUrlsResult = $allUrlsQuery->get_result();
 $allUrls = [];
@@ -61,8 +57,8 @@ $_SESSION['prev_url'] = $prevUrl;
     <meta name="theme-color" content="#ffffff">
 
     <!-- css -->
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style2.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/products.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style2.css?v=538">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/products.css?v=3618">
 
     <!-- bootsrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -104,16 +100,16 @@ $_SESSION['prev_url'] = $prevUrl;
                <div class="hide-on-lg close-div"> <button class="close-btn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button></div>
                <ul class="navbar-nav mx-auto ">
                  <li class="nav-item">
-                   <a class="nav-link" aria-current="page" href="<?php echo BASE_URL; ?>/home">Home</a>
+                   <a class="nav-link" aria-current="page" href="<?php echo BASE_URL; ?>home">Home</a>
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link" href="../about">About</a>
+                   <a class="nav-link" href="<?php echo BASE_URL; ?>about">About</a>
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link" href="../brands">Brands</a>
+                   <a class="nav-link" href="<?php echo BASE_URL; ?>brands">Brands</a>
                  </li>
                  <li class="nav-item">
-                  <a class="nav-link" href="../branch">Branches</a>
+                  <a class="nav-link" href="<?php echo BASE_URL; ?>branch">Branches</a>
                 </li>
                  <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" aria-expanded="false">
@@ -132,7 +128,7 @@ $_SESSION['prev_url'] = $prevUrl;
                    </ul>
                  </li>
                  <li class="nav-item">
-                   <a class="nav-link" href="contact">Contact</a>
+                   <a class="nav-link" href="<?php echo BASE_URL; ?>contact">Contact</a>
                  </li>
                </ul>
              </div>
@@ -148,7 +144,7 @@ $_SESSION['prev_url'] = $prevUrl;
 
  <div class="container product-details mt-5 mb-5">
   <div class="imgBx">
-      <img src="<?php echo BASE_URL; ?>/dashboard/gallery/battery/<?php echo $query_data['images'] ?>" alt="Nike Jordan Proto-Lyte Image">
+      <img src="<?php echo BASE_URL; ?>/dashboard/gallery/<?php echo $table ?>/<?php echo $query_data['images'] ?>" alt="Nike Jordan Proto-Lyte Image">
   </div>
   <div class="details">
 
@@ -157,14 +153,14 @@ $_SESSION['prev_url'] = $prevUrl;
           <h2><?php echo $query_data['name']?>
               <span><?php echo $table ?></span>
           </h2>
-          <p class="description">dvhsdinovhiofughi dusfgusdigiu dufgiudlsguhlsdgiurh isurgiurntiusnunghdvhsdinovhiofughi dusfgusdigiu dufgiudlsguhlsdg</p>
-          <h4 class="h4"><span>Brand</span>Acdelco</h4>
-          <h4 class="h4"><span>Weight</span>40kg</h4>
-          <h4 class="h4"><span>Diamension</span>L 21.26" W8.74" H9.45" Inches</h4>
-          <h4 class="h4"><span>Unit</span>40kg</h4>
+          <p class="description"><?php echo $query_data['description'] ?></p>
+          <h4 class="h4"><span>Brand</span><?php echo $query_data['brand'] ?></h4>
+          <h4 class="h4"><span>Weight</span><?php echo $query_data['weight'] ?></h4>
+          <h4 class="h4"><span>Diamension</span><?php echo $query_data['diamension'] ?></h4>
+          <h4 class="h4"><span>Unit</span><?php echo $query_data['unit'] ?></h4>
         </div>
           <div class="buttons-div d-flex">
-            <button>Enquiry Now</button>
+            <button onclick="window.location.href='tel:<?php echo $query_data['phone'] ?>'">Enquiry Now</button>
             <div class="pre-nxt-div">
               <a class="prev" href="<?php echo BASE_URL; ?>products/battery/<?php echo $prevUrl; ?>"><i class="fa-solid fa-backward"></i>Prev.</a>
               <a class="next" href="<?php echo BASE_URL; ?>products/battery/<?php echo $nextUrl; ?>"><i class="fa-solid fa-forward"></i>Next</a>
@@ -187,18 +183,18 @@ $_SESSION['prev_url'] = $prevUrl;
       <div class="col-md">
         <h3>Menu</h3>
         <ul class="list-unstyled nav-links">
-          <li><a href="<?php echo BASE_URL; ?>/home">Home</a></li>
-          <li><a href="<?php echo BASE_URL; ?>/about">About Us</a></li>
-          <li><a href="<?php echo BASE_URL; ?>/brands">Brands</a></li>
-          <li><a href="<?php echo BASE_URL; ?>/contact">Contact</a></li>
+          <li><a href="<?php echo BASE_URL; ?>../home">Home</a></li>
+          <li><a href="<?php echo BASE_URL; ?>../about">About Us</a></li>
+          <li><a href="<?php echo BASE_URL; ?>../brands">Brands</a></li>
+          <li><a href="<?php echo BASE_URL; ?>../contact">Contact</a></li>
         </ul>
       </div>
       <div class="col-md">
         <h3>Products</h3>
         <ul class="list-unstyled nav-links">
-          <li><a href="battery">Battery</a></li>
-          <li><a href="filter">Filter</a></li>
-          <li><a href="marine-spare-parts">Marine Spare Parts</a></li>
+          <li><a href="../battery">Battery</a></li>
+          <li><a href="../filter">Filter</a></li>
+          <li><a href="../marine-spare-parts">Marine Spare Parts</a></li>
         </ul>
       </div>
       

@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if (isset($_SESSION['error_name'])) {
+    echo '<script>alert("' . $_SESSION['error_name'] . '");</script>';
+    unset($_SESSION['error_name']);
+  }
 if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 ?>
 
@@ -102,7 +105,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                             </tr>
                             <tr>
                                 <td style="text-align: center;">Phone Number</td>
-                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="number" name="phone" value="<?php echo $row['phone'];?>"/></td>
+                                <td style="width: 90%;"><input style="width: 99%;height: 60px;" type="phone" name="phone" value="<?php echo $row['phone'];?>"/></td>
                             </tr>
                             
                          

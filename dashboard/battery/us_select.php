@@ -5,7 +5,6 @@
 <div class="blog-content">
 <div class="container">
 <?php
-include("../root/db.php");
 $sql = "SELECT * FROM battery";
 
 $result = $mysqli->query($sql);

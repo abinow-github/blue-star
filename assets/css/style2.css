@@ -645,6 +645,32 @@
         opacity: 50%;
         object-fit: cover;
       }
+      .whatsapp-btn,.call-btn{
+        position: fixed;
+        right: 20px;
+        height: 60px;
+        width: 60px;
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        bottom: 20px;
+        border-radius: 50%;
+        font-size: 30px;
+        z-index: 9999;
+        color: white;
+      }
+      .whatsapp-btn{
+        background-color: rgb(29, 157, 29);
+      }
+      .call-btn{
+        background-color: var(--blue_crl);
+        bottom: 90px;
+      }
+      .whatsapp-btn:hover,.call-btn:hover{
+        color: white;
+        text-decoration: none;
+      }
     }
     footer:before {
       content: "";
@@ -708,6 +734,15 @@
                 font-size: larger;
                 text-transform: capitalize;
                 font-weight: bold;
+              }
+              .call{
+                display: flex;
+                text-decoration: none;
+                gap: 10px;
+                align-items: center;
+                color: var(--blue_crl);
+                padding: 5px;
+                margin-bottom: 5px;
               }
           }
       }

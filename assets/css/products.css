@@ -154,6 +154,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 .container.product-details .details h2{
@@ -163,12 +164,10 @@
     line-height: 1;
     color: #444;
     font-weight: bolder;
-    line-height: 20px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    line-height: 1;
 }
 
 .container.product-details .details h2 span {
@@ -365,7 +364,6 @@
     line-height: 1;
     color: #444;
     font-weight: bolder;
-    line-height: 20px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;

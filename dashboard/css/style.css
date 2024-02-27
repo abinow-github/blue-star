@@ -55,6 +55,9 @@ li.active{
 }
 .contents .side-menu ul li.active{
     background-color: var(--red) !important;
+    a{
+       color: white; 
+    }
 }
 .contents .side-menu ul li a{
     text-decoration: none;

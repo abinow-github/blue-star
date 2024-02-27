@@ -1,7 +1,4 @@
-
-
 <?php 
-
 session_start();
 
 // Check if the user is not authenticated (not logged in)
@@ -71,15 +68,15 @@ if (isset($_SESSION['upload_error'])) {
 <div class="contents" style="margin-top: 100px;">
     <div class="side-menu" style="position: fixed;">
         <ul>
-            <li class="active"><a href="" style="color:#fff"><img src="../../assets/img/icons/dropdown/battery.png" alt="">Battery</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/filters.png" alt="">Filter</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/marine-spare-parts.png" alt="">Marine Spare Parts</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/engin-parts.png" alt="">Engine Parts</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/electrical-parts.png" alt="">Electrical Parts</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/body-parts.png" alt="">Body Parts</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/suspension.png" alt="">Suspension</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/ac-parts.png" alt="">A/C Parts</a></li>
-            <li><a href="../gallery/"><img src="../../assets/img/icons/dropdown/other-parts.png" alt="">Other Parts</a></li>
+            <li class="active"><a href="../battery"><img src="../../assets/img/icons/dropdown/battery.png" alt="">Battery</a></li>
+            <li><a href="../filter"><img src="../../assets/img/icons/dropdown/filters.png" alt="">Filter</a></li>
+            <li><a href="../marine-spare-parts"><img src="../../assets/img/icons/dropdown/marine-spare-parts.png" alt="">Marine Spare Parts</a></li>
+            <li><a href="../engin-parts"><img src="../../assets/img/icons/dropdown/engin-parts.png" alt="">Engine Parts</a></li>
+            <li><a href="../electrical-parts"><img src="../../assets/img/icons/dropdown/electrical-parts.png" alt="">Electrical Parts</a></li>
+            <li><a href="../body-parts"><img src="../../assets/img/icons/dropdown/body-parts.png" alt="">Body Parts</a></li>
+            <li><a href="../suspenssion"><img src="../../assets/img/icons/dropdown/suspension.png" alt="">Suspension</a></li>
+            <li><a href="../ac-parts"><img src="../../assets/img/icons/dropdown/ac-parts.png" alt="">A/C Parts</a></li>
+            <li><a href="../other-parts"><img src="../../assets/img/icons/dropdown/other-parts.png" alt="">Other Parts</a></li>
         </ul>
     </div>
     <div class="content" style="margin-left: 200px;">
