@@ -8,6 +8,12 @@ if (isset($_SESSION['table'])) {
 } else {
     $table = ''; // Set a default value if the session variable is not set
 }
+$currentUrl = $_SERVER['REQUEST_URI'];
+$pathParts = explode('/', $currentUrl);
+// Get the third element (index 2) after splitting the path
+$thirdWord = isset($pathParts[3]) ? $pathParts[3] : '';
+$category= $thirdWord;
+$table = str_replace('-', '_', $thirdWord);
 
 $query = $mysqli->prepare('SELECT * FROM '.$table.' WHERE `url`= ?');
 $query->bind_param('s', $url);
@@ -151,7 +157,7 @@ $_SESSION['prev_url'] = $prevUrl;
       <div class="content">
         <div class="title-specs-div">
           <h2><?php echo $query_data['name']?>
-              <span><?php echo $table ?></span>
+              <span><?php echo $category ?></span>
           </h2>
           <p class="description"><?php echo $query_data['description'] ?></p>
           <h4 class="h4"><span>Brand</span><?php echo $query_data['brand'] ?></h4>
@@ -162,8 +168,8 @@ $_SESSION['prev_url'] = $prevUrl;
           <div class="buttons-div d-flex">
             <button onclick="window.location.href='tel:<?php echo $query_data['phone'] ?>'">Enquiry Now</button>
             <div class="pre-nxt-div">
-              <a class="prev" href="<?php echo BASE_URL; ?>products/battery/<?php echo $prevUrl; ?>"><i class="fa-solid fa-backward"></i>Prev.</a>
-              <a class="next" href="<?php echo BASE_URL; ?>products/battery/<?php echo $nextUrl; ?>"><i class="fa-solid fa-forward"></i>Next</a>
+              <a class="prev" href="<?php echo BASE_URL; ?>products/<?php echo $category; ?>/<?php echo $prevUrl; ?>"><i class="fa-solid fa-backward"></i>Prev.</a>
+              <a class="next" href="<?php echo BASE_URL; ?>products/<?php echo $category; ?>/<?php echo $nextUrl; ?>"><i class="fa-solid fa-forward"></i>Next</a>
             </div>
           </div>
       </div>
